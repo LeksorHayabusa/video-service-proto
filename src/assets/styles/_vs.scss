@@ -1,0 +1,10 @@
+
+.VS {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	margin: $border-margin;
+	border: $main-border;
+	border-radius: $main-border-radius - 2;
+	height: 100%;
+}

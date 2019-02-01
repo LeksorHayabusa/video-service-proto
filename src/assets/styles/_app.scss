@@ -1,0 +1,26 @@
+@import 'variables';
+
+.App {
+	// spacing
+	$margin_y:20px;
+	
+	// coloring
+	$primary-color: #525dce;
+	
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 1000px;
+	height: calc(100vh - #{$margin_y});
+	border: $main-border;
+	border-radius: $main-border-radius;
+
+	@media screen and (max-width: 800px) {
+		max-width: 800px;
+		width: auto;
+	}
+
+	.App-layout {
+		width: 100%;
+	}
+}

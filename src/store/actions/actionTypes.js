@@ -1,0 +1,1 @@
+export const LOAD_UI_RULES = 'LOAD_UI_RULES';
