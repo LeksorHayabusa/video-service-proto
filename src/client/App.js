@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-/* import '../assets/styles/app.scss'; */
 import AppLayout from '../hoc/App-layout';
-import VS from '../share/Container/VS/VS'
+import VS from '../share/Containers/VS/VS'
 
 class App extends Component {
 

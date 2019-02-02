@@ -1,0 +1,28 @@
+.PreviewList {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	overflow-y: auto;
+
+	.PreviewThumb{
+		width: 250px;
+		height: 180px;
+		margin: 10px;
+		background-color: #ccc;
+		border: 1px solid #000;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: space-between;
+		align-items: center;
+
+		h6 {
+			padding: 8px auto;
+			background-color: rgba(0,0,0,0.5);
+		}
+
+		img {
+			height: 100%;
+			width: 100%;
+		}
+	}
+}

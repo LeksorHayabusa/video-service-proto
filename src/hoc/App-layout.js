@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-import Header from '../share/Component/Navigation/Header'
-/* import '../assets/styles/app.scss'; */
+import Header from '../share/Containers/Navigation/Header'
 
 class AppLayout extends Component {
 	render() {
