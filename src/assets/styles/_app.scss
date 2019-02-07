@@ -1,33 +1,33 @@
 @import 'variables';
 
-.App {
-	// spacing
-	$margin_y:20px;
+body {
+	margin: 0;
+	background-image: url('../imgs/0-02-04-77b8cbb0c9821e9239f810248a1f2ac2546b19512bea6d008bc387393e91ed65_1c6d9798a181da.jpg');
+	background-position: center center;
+
+	.App {
+		@include apply_flex(column, wrap) {
+			align-items: center;
+		};
+		width: 1200px;
+		margin: #{$border_margin};
+		height: calc(100vh - #{$app_double_border_margin});
+		border-radius: $main_border_radius;
+		background-color: transparentize( $white, 0.7);
 	
-	// coloring
-	$primary-color: #525dce;
+		@media screen and (max-width: 1000px) {
+			max-width: 1000px;
+			width: auto;
+		}
 	
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	width: 1200px;
-	height: calc(100vh - #{$margin_y});
-	border: $main-border;
-	border-radius: $main-border-radius;
-	background-color: rgba(0,0,0,0.3);
-
-
-	@media screen and (max-width: 1000px) {
-		max-width: 1000px;
-		width: auto;
-	}
-
-	@media screen and (max-width: 800px) {
-		max-width: 800px;
-		width: auto;
-	}
-
-	.App-layout {
-		width: 100%;
+		@media screen and (max-width: 800px) {
+			max-width: 800px;
+			width: auto;
+		}
+	
+		.App-layout {
+			width: 100%;
+			height: 100%;
+		}
 	}
 }

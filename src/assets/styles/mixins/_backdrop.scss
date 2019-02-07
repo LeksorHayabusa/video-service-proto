@@ -1,0 +1,5 @@
+@mixin add_backdrop(){
+	@include apply_fixed_windows;
+	background-color: transparentize(#000, 0.4);
+	z-index: $zindex-modal-backdrop;
+}

@@ -68,12 +68,12 @@ const initialState = {
 			id: 'a12',
 			title: 'flaimes',
 			thumbUrl: 'https://img.youtube.com/vi/Nh10gL_GP_w/0.jpg'
-		}
+		},
 	]
 }
 
-export default (state = initialState, { type, payload }) => {
+export default ( state = initialState, { type, payload } ) => {
 	switch (type) {
-		default: return state
+		default: return state;
 	}
 }

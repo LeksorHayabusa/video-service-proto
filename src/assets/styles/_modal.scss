@@ -1,0 +1,57 @@
+.Modal {
+	&[aria-hidden=true] {
+		display: none;
+	}
+
+	@include apply_flex{
+		justify-content: center;
+		align-items: center;
+	};
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	position: fixed;
+	overflow: hidden;
+  // Prevent Chrome on Windows from adding a focus outline. For details, see
+  // https://github.com/twbs/bootstrap/pull/10951.
+  outline: 0;
+  // We deliberately don't use `-webkit-overflow-scrolling: touch;` due to a
+  // gnarly iOS Safari bug: https://bugs.webkit.org/show_bug.cgi?id=158342
+	// See also https://github.com/twbs/bootstrap/issues/17695
+	
+	.backdrop {
+		@include add_backdrop;
+	}
+	
+	.modal-body {
+		width: auto;
+		box-sizing: border-box;
+		z-index: $zindex-modal;
+		background-color: #fff;
+		position: relative;
+		@include apply_flex{
+			align-items: center;
+			justify-content: space-between;
+		}
+		// allow clicks to pass through for custom click handling to close modal
+		pointer-events: none;
+
+	// When fading in the modal, animate it to slide down
+		transition: $transition-base;
+		transform: $modal-fade-transform;
+		transform: $modal-show-transform;
+	}
+
+	.modal-header {
+		@include apply_flex(row){
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+		margin-bottom: 0;
+		line-height: $modal-title-line-height;
+		padding: $modal-header-padding;
+		font-size: 1.5rem;
+	}
+	
+}

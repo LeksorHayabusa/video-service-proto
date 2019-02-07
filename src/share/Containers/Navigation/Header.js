@@ -2,8 +2,7 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-/* import '../../../assets/styles/header.scss'; */
-import Button from '../UI/Button';
+import Button from './HeaderButton';
 
 const header = ({headerUI}) => {
 	return (

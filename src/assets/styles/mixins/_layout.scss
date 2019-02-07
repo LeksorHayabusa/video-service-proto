@@ -1,0 +1,18 @@
+
+//apply flex layout
+@mixin apply_flex($direction: column, $wrap_option: nowrap){
+	display: flex;
+	flex-flow: $direction $wrap_option;
+	@content;
+}
+
+//this mixin designed to be added in backdropand other solidly positioned windows
+@mixin apply_fixed_windows($width: 100vw, $height: 100vh){
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: $width;
+	height: $height;
+	@content;
+}

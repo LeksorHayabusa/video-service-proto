@@ -1,28 +1,33 @@
+
+
 .PreviewList {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	overflow-y: auto;
+	@include apply_flex(row, wrap) {
+		justify-content: center;
+	};
+	margin: 7.5px auto;
+	overflow: auto;
+	@include customize_scrollbar;
 
 	.PreviewThumb{
 		width: 250px;
-		height: 180px;
-		margin: 10px;
+		margin: 7.5px;
 		background-color: #ccc;
 		border: 1px solid #000;
-		display: flex;
-		flex-flow: column nowrap;
-		justify-content: space-between;
-		align-items: center;
+		@include apply_flex(column, nowrap) {
+			justify-content: space-between;
+			align-items: center;
+		};
 
 		h6 {
 			padding: 8px auto;
+			margin: 0;
 			background-color: rgba(0,0,0,0.5);
 		}
 
 		img {
-			height: 100%;
 			width: 100%;
+			object-fit: contain;
+			object-position: 50% 50%;
 		}
 	}
 }

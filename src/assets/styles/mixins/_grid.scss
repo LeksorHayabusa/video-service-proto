@@ -1,0 +1,47 @@
+
+//determin elements number placed in the last row
+
+@function determine_top_row_elements(
+	$node_element,
+	$grid_width, 
+	$element_width_with_margins,
+	$total_elements_amount
+	) {
+	@if type-of($grid_width) != number {
+		@warn '#{$grid_width} is not a number';
+		@return $grid_width;
+	}
+	@if type-of($element_width_with_margins) != number {
+		@warn '#{$element_width_with_margins} is not a number';
+		@return $element_width_with_margins;
+	}
+	@if type-of($total_elements_amount) != number {
+		@warn '#{$total_elements_amount} is not a number';
+		@return $total_elements_amount;
+	}
+	//we define variables with null and default statements 
+	//to restrict rewrite and achieve contranstrains as const in js has
+	$elements_amount_in_row: null;
+	$total_rows_amount: null;
+	$not_fully_filled_row_elements_amount: null;
+	$left_elements_amount: null;
+
+	//!!! сюда в elements_amount_in_row нужно добавить округление числа в меньшую сторону
+	
+	$elements_amount_in_row: $grid_width / $element_width_with_margins !default;
+
+	// decimal-round($elements_amount_in_row);
+	
+	$total_rows_amount: $total_elements_amount / $elements_amount_in_row !default;
+
+	$not_fully_filled_row_elements_amount: $total_elements_amount - $total_rows_amount * $elements_amount_in_row !default;
+	
+	$left_elements_amount: $total_elements_amount - $not_fully_filled_row_elements_amount !default;
+	
+	@for $i from 1 through $left_elements_amount {
+		// .$node_element:nth-last-child(#{$num}) {
+			// background-color: blue;
+		// }
+
+	}
+}

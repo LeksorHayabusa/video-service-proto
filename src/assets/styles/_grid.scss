@@ -1,0 +1,8 @@
+//our grid based on xl lg md sm sx screen sizes
+
+
+//let compute serial number of elements in the top row
+
+@if $enabled_grid_classes {
+	@include determine_top_row_elements(1000, 200)
+}

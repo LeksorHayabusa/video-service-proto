@@ -54,10 +54,22 @@ const initialState = {
 				a_pressed: false
 			}
 		]
-	}
+	},
+	modal: {
+		props: {
+			opened: 'aria-modal',
+			closed: 'aria-hidden'
+		},
+		buttons: {
+			closeModal: {
+				styles: 'close-window-header-btn'
+			}
+		}
+	},
+	
 }
 
-export default ( state = initialState, { type, payload } ) => {
+export default (state = initialState, { type, payload }) => {
 	switch (type) {
 		case (actionTypes): return updateObject(state);
 		default: return state;

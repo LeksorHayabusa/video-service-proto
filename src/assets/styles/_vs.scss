@@ -1,12 +1,12 @@
+$vs_magin_top: $border_margin;
 
 .VS {
-	display: flex;
-	flex-flow: column;
-	align-items: center;
-	margin: $border-margin;
-	border: $main-border;
-	border-radius: $main-border-radius - 2;
-	height: 100%;
+	@include apply_flex(column, wrap) {
+		align-items: center;
+	};
+	margin: $border_margin;
+	border-radius: $main_border_radius - 2;
+	height: calc(100% - #{$header_height + $vs_magin_top});
 	background-color: rgba(0,0,0,0.2);
-
+	overflow-y: auto;
 }
