@@ -15,5 +15,6 @@ const PreviewList = ({ previewList }) => (
 )
 
 const mapStateToProps = state => ({ previewList: state.VScontent.previewList });
-const mapDispatchToProps = dispatch => ({})
+const mapDispatchToProps = dispatch => ({});
+
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PreviewList))

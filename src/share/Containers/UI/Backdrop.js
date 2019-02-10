@@ -3,8 +3,16 @@ import { connect } from 'react-redux';
 
 import * as actionCreator from '../../../store/actions/index';
 
-const Backdrop = ({parent, isOpened, closeHandler}) => (
-	isOpened && <div className="backdrop" onClick={() => {closeHandler(parent)}}/>
+const Backdrop = ({
+	parent, 
+	isOpened, 
+	closeHandler
+}) => (
+	<div 
+	data-shown={isOpened}
+	className="backdrop" 
+	onClick={() => closeHandler(parent)}
+	/>
 )
 
 const mapStateToProps = state => ({isOpened: state.AppServState.backdrop.isOpened})

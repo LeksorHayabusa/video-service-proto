@@ -1,5 +1,6 @@
 .button {
 	@include remove_default_button_style;
+	background-color: #fff;
 }
 
 .close-window-header-btn {

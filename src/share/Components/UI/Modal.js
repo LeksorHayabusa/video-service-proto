@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import Transition from 'react-transition-group/Transition';
 
-import * as reservedName from '../../../store/actions/actionTypes';
-import Backdrop from '../../Containers/UI/Backdrop';
 import Button from '../../Containers/UI/Button';
 import * as actionCreator from '../../../store/actions/index';
 
@@ -10,35 +9,35 @@ class Modal extends Component {
 
 	render() {
 		const {
-			isOpened,
 			content,
 			headerCloseButton,
-			closeBtnAria_hidden = true,
-			closeBtnAria_modal = false,
-			//the action below
+			isOpened,
+			ariaProps,
+			openModalAction,
+			mountModalContentAction,
 			closeModalAction,
+			removeModalContentAction
 		} = this.props;
+		console.log(ariaProps);
 		return (
 			<Fragment>
-				<div className="Modal" aria-hidden={closeBtnAria_hidden} aria-modal={closeBtnAria_modal}>
-					{isOpened && (
-						<Fragment>
-							<div className='modal-body'>
-								<div className="modal-header">
-									<h4>{content.header}</h4>
-									<Button
-										styles={headerCloseButton.styles}
-										closeModalAction={closeModalAction}
-									>x</Button>
-								</div>
-								<div className="modal-content">{content.body}</div>
-								<div className="modal-footer">
-									<Button>Okey but</Button>
-								</div>
+				<div className="Modal" {...ariaProps}	>
+					{content && (
+						<div className='modal-body'>
+							<div className="modal-header">
+								<h4>{content.header}</h4>
+								<Button
+									styles={headerCloseButton.styles}
+									closeModalAction={closeModalAction}
+								>x</Button>
 							</div>
-							<Backdrop parent={reservedName.MODAL_PARENT} />
-						</Fragment>
+							<div className="modal-content">{content.body}</div>
+							<div className="modal-footer">
+								<Button>Okey but</Button>
+							</div>
+						</div>
 					)}
+					<div className="modal-backdrop" onClick={closeModalAction} />
 				</div>
 			</Fragment>
 		)
@@ -48,11 +47,12 @@ class Modal extends Component {
 const mapStateToProps = state => ({
 	isOpened: state.AppServState.modal.isOpened,
 	content: state.AppServState.modal.content,
-	headerCloseButton: state.UIsettings.modal.buttons.closeModal,
-	closeBtnAria_hidden: state.AppServState.modal.props.aria_hidden,
-	closeBtnAria_modal: state.AppServState.modal.props.aria_modal
-
+	ariaProps: state.AppServState.modal.props,
+	headerCloseButton: state.UIsettings.modal.buttons.closeModal
 });
-const mapDispatchToProps = dispatch => ({ closeModalAction: () => dispatch(actionCreator.closeModal()) });
+const mapDispatchToProps = dispatch => ({
+	removeModalContentAction: () => dispatch(actionCreator.removeModalContent()),
+	closeModalAction: () => dispatch(actionCreator.closeModal())
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal)

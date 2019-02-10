@@ -1,5 +1,37 @@
-@mixin add_backdrop(){
-	@include apply_fixed_windows;
+@mixin hide_backdrop {
+	animation: hideBackDrop 0.3s ease-out 1;
+	background-color: transparentize(#000, 1);
+
+	@keyframes hideBackDrop {
+		0% {
+			opacity: 1;
+			z-index: $zindex-modal-backdrop;
+			background-color: transparentize(#000, 0.4);
+		}
+		99% {
+			opacity: 0;
+		}
+		100% {
+			z-index: -5;
+		}
+	}
+}
+
+@mixin show_backdrop {
+	animation: showBackDrop 0.3s ease-out 1;
+	opacity: 1;
 	background-color: transparentize(#000, 0.4);
-	z-index: $zindex-modal-backdrop;
+	@keyframes showBackDrop {
+		0% {
+			opacity: 0;
+			z-index: -5;
+		}
+		99% {
+			opacity: 1;
+			background-color: transparentize(#000, 0.4);
+		}
+		100% {
+			z-index: $zindex-modal-backdrop;
+		}
+	}
 }
