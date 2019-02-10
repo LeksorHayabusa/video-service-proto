@@ -1,0 +1,11 @@
+.backdrop {
+	@include apply_fixed_windows;
+	&[data-shown=false] {
+		z-index: -5;
+		@include hide_backdrop;
+	}
+	&[data-shown=true] {
+		z-index: $zindex-modal-backdrop;
+		@include show_backdrop;
+	}
+}

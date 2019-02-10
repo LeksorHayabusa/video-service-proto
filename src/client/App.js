@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
+import Backdrop from '../share/Containers/UI/Backdrop';
 import AppLayout from '../hoc/App-layout';
 import VS from '../share/Containers/VS/VS'
 import Modal from '../share/Components/UI/Modal';
+
 class App extends Component {
 
   render() {

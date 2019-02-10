@@ -2,7 +2,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 import rootReducer from './reducers/index';
-import { closeRemoveModal } from './actions/AppServActions';
+import { helloSaga } from './actions/index';
+import createSagaMiddleware from 'redux-saga';
 
 const logger = store => {
 	return next => {
@@ -17,15 +18,17 @@ const logger = store => {
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-
+const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
 	rootReducer,
 	composeEnhancers(
 		applyMiddleware(
 			logger,
-			thunk
+			thunk,
+			sagaMiddleware
 		)
 	));
 
+sagaMiddleware.run(helloSaga);
 export default store

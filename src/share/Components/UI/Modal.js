@@ -12,16 +12,15 @@ class Modal extends Component {
 			content,
 			headerCloseButton,
 			isOpened,
-			ariaProps,
+			attributeProps,
 			openModalAction,
 			mountModalContentAction,
 			closeModalAction,
 			removeModalContentAction
 		} = this.props;
-		console.log(ariaProps);
 		return (
 			<Fragment>
-				<div className="Modal" {...ariaProps}	>
+				<div className="Modal" {...attributeProps}	>
 					{content && (
 						<div className='modal-body'>
 							<div className="modal-header">
@@ -47,7 +46,7 @@ class Modal extends Component {
 const mapStateToProps = state => ({
 	isOpened: state.AppServState.modal.isOpened,
 	content: state.AppServState.modal.content,
-	ariaProps: state.AppServState.modal.props,
+	attributeProps: state.AppServState.modal.props,
 	headerCloseButton: state.UIsettings.modal.buttons.closeModal
 });
 const mapDispatchToProps = dispatch => ({

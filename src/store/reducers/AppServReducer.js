@@ -7,7 +7,8 @@ const initialState = {
 		content: 'helo oleh',
 		props: {
 			['aria-modal']: false,
-			['aria-hidden']: true
+			['aria-hidden']: true,
+			['data-shown']: false
 		}
 	},
 	backdrop: {
@@ -25,6 +26,7 @@ export default (state = initialState, { type, content }) => {
 			updatedState.modal.content = content;
 			updatedState.modal.props['aria-hidden'] = false;
 			updatedState.modal.props['aria-modal'] = true;
+			updatedState.modal.props['data-shown'] = true;
 
 			return updateObject(state, updatedState)
 		}
@@ -39,10 +41,11 @@ export default (state = initialState, { type, content }) => {
 		// we empty the modal window to clear the resources.
 		case (actionTypes.CLOSE_MODAL): {
 			const updatedState = {...state};
-			updatedState.backdrop.isOpened = false;
+			// updatedState.backdrop.isOpened = false;
 			updatedState.modal.isOpened = false;
 			updatedState.modal.props['aria-hidden'] = true;
 			updatedState.modal.props['aria-modal'] = false;
+			updatedState.modal.props['data-shown'] = false;
 			
 			return updateObject(state, updatedState)
 		}

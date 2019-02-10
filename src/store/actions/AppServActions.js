@@ -15,3 +15,7 @@ export const closeBackdrop = (parent) => {
 	}
 	return { type: actionTypes.CLOSE_BACKDROP }
 }
+
+export function* helloSaga() {
+  console.log('Hello Sagas!')
+}
