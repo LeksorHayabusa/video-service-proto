@@ -11,11 +11,7 @@ export const removeModalContent = () => ({ type: actionTypes.REMOVE_MODAL_CONTEN
 export const closeBackdrop = (parent) => {
 	console.log(parent);
 	if (parent === actionTypes.MODAL_PARENT) {
-		return closeModal();
+		return //closeModal; - to be reconnected to saga actions
 	}
 	return { type: actionTypes.CLOSE_BACKDROP }
-}
-
-export function* helloSaga() {
-  console.log('Hello Sagas!')
 }

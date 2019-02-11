@@ -2,7 +2,6 @@ export {
 	openModal,
 	closeModal,
 	closeBackdrop,
-	removeModalContent,
+	// removeModalContent,
 	mountModalContent,
-	helloSaga
 } from './AppServActions';

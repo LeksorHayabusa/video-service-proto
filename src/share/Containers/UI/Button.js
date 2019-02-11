@@ -4,12 +4,12 @@ export default ({
 	children,
 	styles,
 	disabled = false,
-	closeModalAction
+	clickButtonAction
 }) => (
 		<button
 			className={`${styles} button`}
 			disabled={disabled}
-			onClick={closeModalAction}
+			onClick={clickButtonAction}
 		>
 			{children}
 		</button>

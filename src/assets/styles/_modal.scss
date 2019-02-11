@@ -1,10 +1,11 @@
 .Modal {
-	&[data-shown=false] {
-		opacity: 0;
-		transform: translateY(-100%);
+	&[data-modal-active=false] {
+		// opacity: 0;
+		// transform: translateY(-100%);
+		animation: closeModal 1s ease-out forwards;
 	}
 	
-	&[data-shown=true] {
+	&[data-modal-active=true] {
 		.modal-body {
 			animation: openModal 1s ease-out forwards;
 		}
@@ -54,13 +55,13 @@
 		@include apply_fixed_windows;
 	}
 
-	&[data-shown=false] { 
+	&[data-modal-active=false] { 
 		.modal-backdrop {
 			z-index: -5;
 			@include hide_backdrop; 
 		}
 	}
-	&[data-shown=true] {
+	&[data-modal-active=true] {
 		.modal-backdrop {
 			pointer-events: auto;
 			z-index: $zindex-modal-backdrop;
@@ -85,15 +86,15 @@
 	@keyframes closeModal {
 		0% {
 			opacity: 0;
-			transform: translateY(-100%);
+			transform: translateY(0%);
 		}
-		50% {
+		10% {
 			opacity: 1;
 			transform: translateY(10%);
 		}
 		100% {
 			opacity: 1;
-			transform: translateY(0);
+			transform: translateY(-100%);
 		}
 	}
 	

@@ -1,9 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from './reducers/index';
-import { helloSaga } from './actions/index';
-import createSagaMiddleware from 'redux-saga';
+import { watchUI } from './sagas/rootWatcher';
 
 const logger = store => {
 	return next => {
@@ -25,10 +24,9 @@ const store = createStore(
 	composeEnhancers(
 		applyMiddleware(
 			logger,
-			thunk,
 			sagaMiddleware
 		)
 	));
 
-sagaMiddleware.run(helloSaga);
+sagaMiddleware.run(watchUI);
 export default store
