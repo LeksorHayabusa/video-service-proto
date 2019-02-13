@@ -1,22 +1,26 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-
+import { Transition } from 'react-transition-group';
 import Button from '../../Containers/UI/Button';
 import * as actionCreator from '../../../store/actions/index';
 
-class Modal extends Component {
 
+class Modal extends Component {
 	render() {
 		const {
 			content,
 			headerCloseButton,
 			isOpened,
+			isMounted,
 			attributeProps,
 			closeModalAction
 		} = this.props;
 		return (
 			<Fragment>
-				{isOpened && <div className="Modal" {...attributeProps}	>
+				{isMounted && <div className={`Modal ${isOpened ? 'active' : null}`} {...attributeProps}>
+					{/* <Transition timeout={3000}>
+						{state => {return console.log('state from', state)}}
+					</Transition> */}
 					{content && (
 						<div className='modal-body'>
 							<div className="modal-header">
@@ -32,7 +36,7 @@ class Modal extends Component {
 							</div>
 						</div>
 					)}
-					<div className="modal-backdrop" onClick={closeModalAction} />
+					<div className="modal-backdrop" onClick={closeModalAction}/>
 				</div>
 				}
 			</Fragment>
@@ -42,6 +46,7 @@ class Modal extends Component {
 
 const mapStateToProps = state => ({
 	isOpened: state.AppServState.modal.isOpened,
+	isMounted: state.AppServState.modal.isMounted,
 	content: state.AppServState.modal.content,
 	attributeProps: state.AppServState.modal.props,
 	headerCloseButton: state.UIsettings.modal.buttons.closeModal

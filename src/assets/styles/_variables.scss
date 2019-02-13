@@ -1,4 +1,14 @@
 
+//                          !!!                          \\
+$row-transition-time: 300;//ms
+//converted transition time
+$transition-time: 300/1000 + s;
+//This export redefines transition time and another used in css animation and js modules.
+:export { 
+  TRANSITION_DURATION: $row-transition-time;
+};
+//                          !!!                          \\
+
 //borders
 $main_border: 1px solid #b0bec5 !default;
 $main_border_radius: 10px !default;
