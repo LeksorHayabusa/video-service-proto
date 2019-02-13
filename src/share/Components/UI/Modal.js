@@ -18,9 +18,7 @@ class Modal extends Component {
 		return (
 			<Fragment>
 				{isMounted && <div className={`Modal ${isOpened ? 'active' : null}`} {...attributeProps}>
-					{/* <Transition timeout={3000}>
-						{state => {return console.log('state from', state)}}
-					</Transition> */}
+
 					{content && (
 						<div className='modal-body'>
 							<div className="modal-header">
