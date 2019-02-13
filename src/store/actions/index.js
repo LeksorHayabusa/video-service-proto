@@ -2,6 +2,6 @@ export {
 	openModal,
 	closeModal,
 	closeBackdrop,
-	// removeModalContent,
+	removeModalContent,
 	mountModalContent,
 } from './AppServActions';

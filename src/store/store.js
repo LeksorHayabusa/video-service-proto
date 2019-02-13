@@ -28,5 +28,6 @@ const store = createStore(
 		)
 	));
 
-sagaMiddleware.run(watchUI);
+// sagaMiddleware.run(watchUI);
+
 export default store
