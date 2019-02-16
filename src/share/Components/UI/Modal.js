@@ -10,7 +10,7 @@ class Modal extends Component {
 	render() {
 		const {
 			content,
-			headerCloseButton,
+			buttonStyles,
 			isOpened,
 			isMounted,
 			attributeProps,
@@ -24,20 +24,21 @@ class Modal extends Component {
 						{content && (
 							<div className='modal-body' onAnimationEnd={
 								({animationName}) => {
-									console.log(animationName, '=?', styleNames);
 								animationName === styleNames.closeModalKeyframes &&
 								removeModalContentAction()
 							}}>
 								<div className="modal-header">
 									<h4>hellow from modal</h4>
 									<Button
-										styles={headerCloseButton.styles}
+										styles={buttonStyles.xClose.style}
 										clickButtonAction={closeModalAction}
 									>x</Button>
 								</div>
 								<div className="modal-content">{content.body}</div>
 								<div className="modal-footer">
-									<Button>Okey but</Button>
+									<Button
+										styles={buttonStyles.default.style}
+										>Okey but</Button>
 								</div>
 							</div>
 						)}
@@ -55,7 +56,7 @@ const mapStateToProps = state => ({
 	isMounted: state.AppServiceState.modal.isMounted,
 	content: state.AppServiceState.modal.content,
 	attributeProps: state.AppServiceState.modal.props,
-	headerCloseButton: state.UIsettings.modal.buttons.closeModal
+	buttonStyles: state.UIsettings.modal.buttons
 });
 const mapDispatchToProps = dispatch => ({
 	closeModalAction: () => dispatch(actionCreator.closeModal()),

@@ -3,7 +3,11 @@
 	background-color: #fff;
 }
 
-.close-window-header-btn {
+.default {
+	border: 1px solid #ccc;
+}
+
+.x-close-btn {
 	padding: $modal-header-padding;
 	margin: (-$modal-header-padding-y) (-$modal-header-padding-x) (-$modal-header-padding-y) auto;
 	@include remove_default_button_style;

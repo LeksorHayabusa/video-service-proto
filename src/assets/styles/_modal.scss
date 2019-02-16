@@ -28,18 +28,6 @@
   // gnarly iOS Safari bug: https://bugs.webkit.org/show_bug.cgi?id=158342
 	// See also https://github.com/twbs/bootstrap/issues/17695
 	
-	.modal-body {
-		position: relative;
-		z-index: $zindex-modal;
-		box-sizing: border-box;
-		background-color: #c9c9c9;
-		@include apply_flex{
-			align-items: center;
-			justify-content: space-between;
-		}
-		min-width: 200px;
-	}
-
 	.modal-header {
 		@include apply_flex(row){
 			justify-content: space-between;
@@ -51,14 +39,29 @@
 		font-size: 1.5rem;
 		background-color: #fff;
 		pointer-events: auto;
+		border-bottom: 1px solid #ccc;
 	}
-
-	.modal-footer {
-		padding: $modal-footer-padding;
+		
+	.modal-body {
+		position: relative;
+		z-index: $zindex-modal;
+		box-sizing: border-box;
+		background-color: #fff;
+		@include apply_flex{
+			align-items: center;
+			justify-content: space-between;
+		}
+		min-width: 200px;
 	}
-
+	
 	.modal-content {
 		padding: $modal-inner-padding;
+		border-bottom: 1px solid #ccc;
+		width: 100%;
+	}
+	
+	.modal-footer {
+		padding: $modal-footer-padding;
 	}
 
 	.modal-backdrop {

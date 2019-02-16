@@ -61,8 +61,11 @@ const initialState = {
 			closed: 'aria-hidden'
 		},
 		buttons: {
-			closeModal: {
-				styles: 'close-window-header-btn'
+			xClose: {
+				style: 'x-close-btn'
+			},
+			default: {
+				style: 'default'
 			}
 		}
 	},

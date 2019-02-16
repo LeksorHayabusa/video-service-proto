@@ -1,6 +1,7 @@
 import React from 'react';
-
-export default ({
+import PropTypes from 'prop-types';
+import { requiredIf } from '../../../tests/util';
+const Button = ({
 	children,
 	styles,
 	disabled = false,
@@ -14,3 +15,12 @@ export default ({
 			{children}
 		</button>
 	)
+
+Button.propTypes = {
+	children: PropTypes.string.isRequired,
+	styles: PropTypes.string.isRequired,
+	disabled: requiredIf(PropTypes.bool, ({disabled}) => disabled !== undefined),
+	clickButtonAction: requiredIf(PropTypes.func, ({disabled}) => disabled !== undefined)
+}
+
+export default Button;
