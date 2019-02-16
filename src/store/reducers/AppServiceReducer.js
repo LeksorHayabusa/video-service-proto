@@ -7,7 +7,10 @@ const initialState = {
 	modal: {
 		isOpened: false,
 		isMounted: false,
-		content: 'helo oleh',
+		content: {
+			header:'',
+			body: ''
+		},
 		props: {
 			['aria-modal']: true,
 		}
@@ -39,7 +42,7 @@ export default (state = initialState, { type, content }) => {
 		}
 		case (actionTypes.REMOVE_MODAL_CONTENT): {
 			const updatedState = { ...state };
-			updatedState.modal.content = 'after remove';
+			updatedState.modal.content = initialState.modal.content;
 			updatedState.modal.isMounted = false;
 			return updateObject(state, updatedState)
 		}

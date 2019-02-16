@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Transition } from 'react-transition-group';
 
 import Button from '../../Containers/UI/Button';
 import * as actionCreator from '../../../store/actions/index';
-
+import styleNames from '../../../assets/styles/styles.scss';
 
 class Modal extends Component {
 	render() {
@@ -19,12 +19,13 @@ class Modal extends Component {
 		} = this.props;
 		return (
 			<Fragment>
-				{isMounted && <div className={`Modal ${isOpened ? 'active' : null}`} {...attributeProps}>
+				{isMounted && <div className={`Modal ${isOpened ? 'active' : ''}`} {...attributeProps}>
 					<Fragment>
 						{content && (
 							<div className='modal-body' onAnimationEnd={
 								({animationName}) => {
-								animationName === 'closeModal' &&
+									console.log(animationName, '=?', styleNames);
+								animationName === styleNames.closeModalKeyframes &&
 								removeModalContentAction()
 							}}>
 								<div className="modal-header">
@@ -50,15 +51,27 @@ class Modal extends Component {
 }
 
 const mapStateToProps = state => ({
-	isOpened: state.AppServState.modal.isOpened,
-	isMounted: state.AppServState.modal.isMounted,
-	content: state.AppServState.modal.content,
-	attributeProps: state.AppServState.modal.props,
+	isOpened: state.AppServiceState.modal.isOpened,
+	isMounted: state.AppServiceState.modal.isMounted,
+	content: state.AppServiceState.modal.content,
+	attributeProps: state.AppServiceState.modal.props,
 	headerCloseButton: state.UIsettings.modal.buttons.closeModal
 });
 const mapDispatchToProps = dispatch => ({
 	closeModalAction: () => dispatch(actionCreator.closeModal()),
 	removeModalContentAction: () => dispatch(actionCreator.removeModalContent())
 });
+
+Modal.propTypes = {
+	isMounted: PropTypes.bool.isRequired,
+	isOpened: PropTypes.bool.isRequired,
+	attributeProps: PropTypes.object.isRequired,
+	content: PropTypes.shape({
+		header: PropTypes.string.isRequired,
+		body: PropTypes.string.isRequired
+	}).isRequired,
+	closeModalAction: PropTypes.func.isRequired,
+	removeModalContentAction: PropTypes.func.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal)

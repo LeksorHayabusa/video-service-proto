@@ -1,24 +1,25 @@
 .Modal {
 		&.active {
-		.modal-body {
-		animation: openModal 0.3s ease-out forwards;
-		}
+			.modal-body {
+				animation: $modal-transition-in;
+				@include dropdown_key_frames($open-modal-keyframes-name);
+			}
 	}
 	
 		&:not(.active) {
 			.modal-body {
-				// transform: translateY(-100%);
-				animation: closeModal 0.3s ease-out forwards;
+				animation: $modal-transition-out;
+				@include dropdown_key_frames($close-modal-keyframes-name);
 		}
 	}
 
 	position: fixed;
-	width: 100%;
-	height: 100%;
 	@include apply_flex{
 		justify-content: center;
 		align-items: center;
 	};
+	width: 100%;
+	height: 100%;
 	overflow: hidden;
   // Prevent Chrome on Windows from adding a focus outline. For details, see
   // https://github.com/twbs/bootstrap/pull/10951.
@@ -26,17 +27,17 @@
   // We deliberately don't use `-webkit-overflow-scrolling: touch;` due to a
   // gnarly iOS Safari bug: https://bugs.webkit.org/show_bug.cgi?id=158342
 	// See also https://github.com/twbs/bootstrap/issues/17695
-	// transition: opacity .5s linear;
-
+	
 	.modal-body {
+		position: relative;
 		z-index: $zindex-modal;
 		box-sizing: border-box;
 		background-color: #c9c9c9;
-		position: relative;
 		@include apply_flex{
 			align-items: center;
 			justify-content: space-between;
 		}
+		min-width: 200px;
 	}
 
 	.modal-header {
@@ -50,6 +51,14 @@
 		font-size: 1.5rem;
 		background-color: #fff;
 		pointer-events: auto;
+	}
+
+	.modal-footer {
+		padding: $modal-footer-padding;
+	}
+
+	.modal-content {
+		padding: $modal-inner-padding;
 	}
 
 	.modal-backdrop {
@@ -68,34 +77,4 @@
 			@include show_backdrop; 
 		}
 	}
-
-	@keyframes openModal {
-		0% {
-			opacity: 0;
-			transform: translateY(-100%);
-		}
-		50% {
-			opacity: 1;
-			transform: translateY(10%);
-		}
-		100% {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-	@keyframes closeModal {
-		0% {
-			opacity: 1;
-			transform: translateY(0%);
-		}
-		20% {
-			opacity: 0.8;
-			transform: translateY(10%);
-		}
-		100% {
-			opacity: 0;
-			transform: translateY(-100%);
-		}
-	}
-	
 }

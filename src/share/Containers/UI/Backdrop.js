@@ -15,7 +15,7 @@ const Backdrop = ({
 	/>
 )
 
-const mapStateToProps = state => ({isOpened: state.AppServState.backdrop.isOpened})
+const mapStateToProps = state => ({isOpened: state.AppServiceState.backdrop.isOpened})
 
 const mapDispatchToProps = dispatch => ({
  	closeHandler: (parent) => dispatch(actionCreator.closeBackdrop(parent))

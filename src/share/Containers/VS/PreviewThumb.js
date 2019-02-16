@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import * as actionCreator from '../../../store/actions/index'
-import Button from '../UI/Button';
 
 // testing content pass value
 const content = {
