@@ -1,23 +1,32 @@
 .PreviewThumb{
 	width: 250px;
 	margin: 7.5px;
-	background-color: #ccc;
-	border: 1px solid #000;
+	background-color: transparentize(#fff, 0.5);
+	border: 1px solid rgb(197, 197, 197);
+	border-radius: 5px;
 	@include apply_flex(column, nowrap) {
 		justify-content: space-between;
 		align-items: center;
 	};
 
-	h5 {
-		padding: 1rem auto;
+	& .title {
+		padding: .15rem;
 		margin: 0;
-		background-color: rgba(0,0,0,0.5);
-		align-self: center;
+		font-size: $thumb-title;
 	}
-
-	img {
+	
+	& img {
 		width: 100%;
 		object-fit: contain;
 		object-position: 50% 50%;
+	}
+
+	& .footer {
+		width: 100%;
+		@include apply_flex(row, nowrap);
+	}
+
+	& .footer > * {
+		width: 50%;
 	}
 }

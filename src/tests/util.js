@@ -17,6 +17,5 @@ export const requiredIf = (type, condition) =>
 		}
 
 		const test = condition(props) ? type.isRequired : type;
-		console.log(arguments, 'hello from requiredIF');
 		return test.apply(this, arguments);
 	}

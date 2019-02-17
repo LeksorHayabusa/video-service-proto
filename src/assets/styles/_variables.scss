@@ -158,6 +158,12 @@ $font-weight-base:            400 !default;//as the normal is
 $font-weight-bold:            700 !default;
 $font-weight-bolder:          bolder !default;
 
+$h1-size:                     $font-size-base * 2.5 !default;
+$h2-size:                     $font-size-base * 2 !default;
+$h3-size:                     $font-size-base * 1.75 !default;
+$h4-size:                     $font-size-base * 1.5 !default;
+$h5-size:                     $font-size-base * 1.25 !default;
+$h6-size:                     $font-size-base !default;
 
 $dt-font-weight:              $font-weight-bold !default;
 
@@ -211,3 +217,8 @@ $input-padding-x:                       $input-btn-padding-x !default;
 $input-font-size:                       $input-btn-font-size !default;
 $input-font-weight:                     $font-weight-base !default;
 $input-line-height:                     $input-btn-line-height !default;
+
+
+//Thumbnails
+
+$thumb-title: $h4-size;

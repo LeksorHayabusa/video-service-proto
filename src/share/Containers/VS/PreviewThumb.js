@@ -17,10 +17,8 @@ const PreviewThumb = ({
 	addBtn,
 	openModal }) => (
 		<div className='PreviewThumb'>
-			<div onClick={() => { openModal(content) }}>
-				<h6>{previewList[i].title}</h6>
-				<img src={previewList[i].thumbUrl} alt={previewList[i].title} />
-			</div>
+				<h6 className='title'>{previewList[i].title}</h6>
+				<img src={previewList[i].thumbUrl} alt={previewList[i].title} onClick={() => { openModal(content) }}/>
 			<div className="footer">
 				<button btntype={cancelBtn}>Cancel</button>
 				<button btntype={addBtn}>Add to card</button>
