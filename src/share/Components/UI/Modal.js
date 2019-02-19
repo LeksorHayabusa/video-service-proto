@@ -7,6 +7,17 @@ import * as actionCreator from '../../../store/actions/index';
 import styleNames from '../../../assets/styles/styles.scss';
 
 class Modal extends Component {
+	static propTypes = {
+		isMounted: PropTypes.bool.isRequired,
+		isOpened: PropTypes.bool.isRequired,
+		attributeProps: PropTypes.object.isRequired,
+		content: PropTypes.shape({
+			header: PropTypes.string.isRequired,
+			body: PropTypes.string.isRequired
+		}).isRequired,
+		closeModalAction: PropTypes.func.isRequired,
+		unmountModalAction: PropTypes.func.isRequired
+	}
 	render() {
 		const {
 			content,
@@ -24,10 +35,10 @@ class Modal extends Component {
 					<Fragment>
 						{content && (
 							<div className='modal-body' onAnimationEnd={
-								({animationName}) => {
-								animationName === styleNames.closeModalKeyframes &&
-								unmountModalAction()
-							}}>
+								({ animationName }) => {
+									animationName === styleNames.closeModalKeyframes &&
+										unmountModalAction()
+								}}>
 								<div className="modal-header">
 									<h4>hellow from modal</h4>
 									<Button
@@ -39,7 +50,7 @@ class Modal extends Component {
 								<div className="modal-footer">
 									<Button
 										styles={buttonStyles.default.style}
-										>Okey but</Button>
+									>Okey but</Button>
 								</div>
 							</div>
 						)}
@@ -63,17 +74,5 @@ const mapDispatchToProps = dispatch => ({
 	closeModalAction: () => dispatch(actionCreator.closeModal()),
 	unmountModalAction: () => dispatch(actionCreator.unmountModal())
 });
-
-Modal.propTypes = {
-	isMounted: PropTypes.bool.isRequired,
-	isOpened: PropTypes.bool.isRequired,
-	attributeProps: PropTypes.object.isRequired,
-	content: PropTypes.shape({
-		header: PropTypes.string.isRequired,
-		body: PropTypes.string.isRequired
-	}).isRequired,
-	closeModalAction: PropTypes.func.isRequired,
-	unmountModalAction: PropTypes.func.isRequired
-}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal)
