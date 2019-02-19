@@ -16,6 +16,10 @@
 	font-weight: 700;
 	line-height: 1rem;
 
+
+	&::after {
+		content: 'x';
+	}
 	:not(:disabled) {
 		cursor: pointer;
 	}

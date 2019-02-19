@@ -2,8 +2,10 @@
 import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../utils';
 
+///////////////внимание нужно рефакторнуть и объединить 
+//функции демонтирования модального, драгплеера и затемнения
 const initialState = {
-	//keys are differenciated by component-based roles
+	//keys are splited by component-based roles
 	modal: {
 		isOpened: false,
 		isMounted: false,
@@ -17,13 +19,21 @@ const initialState = {
 	},
 	backdrop: {
 		isOpened: false
+	},
+	dragPlayer: {
+		isMounted: false,
+		isOpened: false,
+		isDragging: false,
+		content: {}
 	}
 }
 
 
 export default (state = initialState, { type, content }) => {
 	switch (type) {
-		case (actionTypes.OPEN_MODAL): {
+
+//MODAL CASES
+		case (actionTypes.MOUNT_AND_OPEN_MODAL): {
 			const updatedState = { ...state };
 			updatedState.modal.isOpened = true;
 			updatedState.modal.isMounted = true;
@@ -40,15 +50,44 @@ export default (state = initialState, { type, content }) => {
 			updatedState.modal.isOpened = false;
 			return updateObject(state, updatedState)
 		}
-		case (actionTypes.REMOVE_MODAL_CONTENT): {
+		case (actionTypes.UNMOUNT_MODAL): {
 			const updatedState = { ...state };
 			updatedState.modal.content = initialState.modal.content;
 			updatedState.modal.isMounted = false;
 			return updateObject(state, updatedState)
 		}
+
+//BACKDROP
 		case (actionTypes.CLOSE_BACKDROP): {
 			const updatedState = { ...state };
 			updatedState.backdrop.isOpened = false;
+			return updateObject(state, updatedState)
+		}
+
+//DRAGGABLE PLAYER
+		case (actionTypes.MOUNT_DRAG_PLAYER): {
+			const updatedState = { ...state };
+			updatedState.dragPlayer.isMounted = true;
+			updatedState.dragPlayer.isOpened = true;
+			updatedState.dragPlayer.content = content;
+			return updateObject(state, updatedState)
+		}
+		case (actionTypes.DRAG_PLAYER): {
+			const updatedState = { ...state };
+			updatedState.dragPlayer.isDragging = true;
+			return updateObject(state, updatedState)
+		}
+		case (actionTypes.CLOSE_DRAG_PLAYER): {
+			const updatedState = { ...state };
+			updatedState.dragPlayer.isOpened = false;
+			updatedState.dragPlayer.isMounted = false;
+			updatedState.modal.content = initialState.dragPlayer.content;
+			return updateObject(state, updatedState)
+		}
+		case (actionTypes.UNMOUNT_DRAG_PLAYER): {
+			const updatedState = { ...state };
+			updatedState.dragPlayer.isMounted = false;
+			updatedState.modal.content = initialState.dragPlayer.content;
 			return updateObject(state, updatedState)
 		}
 		default: return state

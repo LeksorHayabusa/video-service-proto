@@ -1,30 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Button from '../../Containers/UI/Button';
 import * as actionCreator from '../../../store/actions/index'
-
-// testing content pass value
-const content = {
-	header: 'helllo heading',
-	body: 'here is some body',
-
-}
 
 const PreviewThumb = ({
 	previewList,
 	i,
 	cancelBtn,
 	addBtn,
-	openModal }) => (
+	openDragPlayerAction }) => {
+		return(
 		<div className='PreviewThumb'>
 				<h6 className='title'>{previewList[i].title}</h6>
-				<img src={previewList[i].thumbUrl} alt={previewList[i].title} onClick={() => { openModal(content) }}/>
+				<img src={previewList[i].thumbUrl} alt={previewList[i].title} onClick={() => { openDragPlayerAction(previewList[i]) }}/>
 			<div className="footer">
-				<button btntype={cancelBtn}>Cancel</button>
-				<button btntype={addBtn}>Add to card</button>
+				<Button btntype={cancelBtn}>Not interesting</Button>
+				<Button btntype={addBtn}>Add to card</Button>
 			</div>
 		</div>
-	)
+	)}
 
 const mapStateToProps = state => ({
 	previewList: state.VScontent.previewList,
@@ -32,6 +27,6 @@ const mapStateToProps = state => ({
 	addBtn: state.UIsettings.addBtn
 });
 const mapDispatchToProps = dispatch => ({
-	openModal: (content) => dispatch(actionCreator.openModal(content))
+	openDragPlayerAction: (content) => dispatch(actionCreator.mountDragPlayer(content))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(PreviewThumb)

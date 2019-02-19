@@ -69,6 +69,13 @@ const initialState = {
 			}
 		}
 	},
+	dragPlayer: {
+		buttons: {
+			xClose: {
+				style: 'x-close-btn'
+			}
+		}
+	}
 	
 }
 

@@ -15,8 +15,9 @@ class Modal extends Component {
 			isMounted,
 			attributeProps,
 			closeModalAction,
-			removeModalContentAction
+			unmountModalAction
 		} = this.props;
+		console.log(content, 'hello from modal content');
 		return (
 			<Fragment>
 				{isMounted && <div className={`Modal ${isOpened ? 'active' : ''}`} {...attributeProps}>
@@ -25,14 +26,14 @@ class Modal extends Component {
 							<div className='modal-body' onAnimationEnd={
 								({animationName}) => {
 								animationName === styleNames.closeModalKeyframes &&
-								removeModalContentAction()
+								unmountModalAction()
 							}}>
 								<div className="modal-header">
 									<h4>hellow from modal</h4>
 									<Button
 										styles={buttonStyles.xClose.style}
 										clickButtonAction={closeModalAction}
-									>x</Button>
+									/>
 								</div>
 								<div className="modal-content">{content.body}</div>
 								<div className="modal-footer">
@@ -60,7 +61,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
 	closeModalAction: () => dispatch(actionCreator.closeModal()),
-	removeModalContentAction: () => dispatch(actionCreator.removeModalContent())
+	unmountModalAction: () => dispatch(actionCreator.unmountModal())
 });
 
 Modal.propTypes = {
@@ -72,7 +73,7 @@ Modal.propTypes = {
 		body: PropTypes.string.isRequired
 	}).isRequired,
 	closeModalAction: PropTypes.func.isRequired,
-	removeModalContentAction: PropTypes.func.isRequired
+	unmountModalAction: PropTypes.func.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal)

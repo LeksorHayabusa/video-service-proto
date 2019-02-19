@@ -17,8 +17,8 @@ const Button = ({
 	)
 
 Button.propTypes = {
-	children: PropTypes.string.isRequired,
-	styles: PropTypes.string.isRequired,
+	children: requiredIf(PropTypes.string, ({children})=> children !== undefined),
+	styles: requiredIf(PropTypes.string, ({styles})=> styles !== undefined),
 	disabled: requiredIf(PropTypes.bool, ({disabled}) => disabled !== undefined),
 	clickButtonAction: requiredIf(PropTypes.func, ({disabled}) => disabled !== undefined)
 }

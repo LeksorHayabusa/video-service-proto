@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import PreviewThumb from './PreviewThumb';
+import DraggablePlayer from '../../Components/VS/DraggablePlayer';
 
 export const PreviewList = ({ previewList }) => (
 	<div className='PreviewList'>
+		<DraggablePlayer/>
 		{previewList && previewList.map((el, i) => (
 			<Fragment key={i}>
 				<PreviewThumb i={i} />

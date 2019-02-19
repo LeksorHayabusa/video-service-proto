@@ -1,7 +1,10 @@
 export {
-	openModal,
+	mountAndOpenModal,
 	closeModal,
 	closeBackdrop,
-	removeModalContent,
-	mountModalContent,
+	unmountModal,
+	mountDragPlayer,
+	dragPlayer,
+	closeDragPlayer,
+	unmountDragPlayer
 } from './AppServActions';
