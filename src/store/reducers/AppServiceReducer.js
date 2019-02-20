@@ -81,7 +81,7 @@ export default (state = initialState, { type, content }) => {
 			const updatedState = { ...state };
 			updatedState.dragPlayer.isOpened = false;
 			updatedState.dragPlayer.isMounted = false;
-			updatedState.modal.content = initialState.dragPlayer.content;
+			updatedState.dragPlayer.content = initialState.dragPlayer.content;
 			return updateObject(state, updatedState)
 		}
 		case (actionTypes.UNMOUNT_DRAG_PLAYER): {

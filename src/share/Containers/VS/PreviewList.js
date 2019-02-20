@@ -7,7 +7,10 @@ import DraggablePlayer from '../../Components/VS/DraggablePlayer';
 
 export const PreviewList = ({ previewList }) => (
 	<div className='PreviewList'>
-		<DraggablePlayer/>
+		<DraggablePlayer
+			// {...this.state}
+			onUpdatePosition={(x, y) => this.setState({ x: x, y: y })}
+		/>
 		{previewList && previewList.map((el, i) => (
 			<Fragment key={i}>
 				<PreviewThumb i={i} />

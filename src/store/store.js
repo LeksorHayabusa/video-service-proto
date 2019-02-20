@@ -24,7 +24,7 @@ const store = createStore(
 	composeEnhancers(
 		applyMiddleware(
 			logger,
-			sagaMiddleware
+			// sagaMiddleware
 		)
 	));
 
