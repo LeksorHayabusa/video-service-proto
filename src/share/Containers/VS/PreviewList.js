@@ -3,14 +3,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import PreviewThumb from './PreviewThumb';
-import DraggablePlayer from '../../Components/VS/DraggablePlayer';
+import DraggableWrapper from '../../Components/VS/DraggableWrapper';
 
 export const PreviewList = ({ previewList }) => (
 	<div className='PreviewList'>
-		<DraggablePlayer
-			// {...this.state}
-			onUpdatePosition={(x, y) => this.setState({ x: x, y: y })}
-		/>
+		<DraggableWrapper/>
 		{previewList && previewList.map((el, i) => (
 			<Fragment key={i}>
 				<PreviewThumb i={i} />

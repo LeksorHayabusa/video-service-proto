@@ -1,0 +1,44 @@
+.DragWrapper {
+	&:not(.active) {
+		//space for animation
+	}
+
+	@include apply_flex() {
+		justify-content: space-between;
+		align-content: center;
+	}
+	width: 400px;
+	height: 300px;
+	position: absolute;
+	z-index: $zindex-sticky;
+	background-color: transparentize(#fff, 0.05);
+	border: $main_border;
+	border-radius: $main_border_radius;
+	line-height: $modal-title-line-height;
+	padding: $modal-header-padding;
+	// margin: 10px;
+	// padding: 3px;
+	font-size: $h4-size;
+
+	& .dragWrapper-header {
+		@include apply_flex(row, nowrap) {
+			justify-content: space-between;
+		}
+		width: 100%;
+		text-align: center;
+		border-bottom: 1px solid rgb(90, 90, 90);
+		
+		& .draggableAnchorDiv {
+			align-self: center;
+			width: 100%;
+			// height: 10px;
+			cursor: move;
+			touch-action: none;
+			text-transform: capitalize;
+		}
+		
+		.x-close-btn {
+			
+		}
+	}
+}

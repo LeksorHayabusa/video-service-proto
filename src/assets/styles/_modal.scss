@@ -36,10 +36,10 @@
 		margin-bottom: 0;
 		line-height: $modal-title-line-height;
 		padding: $modal-header-padding;
-		font-size: 1.5rem;
+		font-size: $h4-size;
 		background-color: #fff;
 		pointer-events: auto;
-		border-bottom: 1px solid #ccc;
+		border-bottom: $main_border;
 	}
 		
 	.modal-body {
@@ -56,7 +56,7 @@
 	
 	.modal-content {
 		padding: $modal-inner-padding;
-		border-bottom: 1px solid #ccc;
+		border-bottom: $main_border;
 		width: 100%;
 	}
 	

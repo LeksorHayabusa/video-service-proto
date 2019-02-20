@@ -16,11 +16,9 @@ export const closeBackdrop = (parent) => {
 	return { type: actionTypes.CLOSE_BACKDROP }
 }
 
-//DRAGGABLE PLAYER
-export const mountDragPlayer = content => ({type: actionTypes.MOUNT_DRAG_PLAYER, content})
+//DRAGGABLE WRAPPER
+export const mountDragWrapper = content => ({type: actionTypes.MOUNT_DRAG_WRAPPER, content})
 
-export const dragPlayer = () => ({type: actionTypes.DRAG_PLAYER})
+export const closeDragWrapper = () => ({type: actionTypes.CLOSE_DRAG_WRAPPER})
 
-export const closeDragPlayer = () => ({type: actionTypes.CLOSE_DRAG_PLAYER})
-
-export const unmountDragPlayer = () => ({type: actionTypes.UNMOUNT_DRAG_PLAYER})
+export const unmountDragWrapper = () => ({type: actionTypes.UNMOUNT_DRAG_WRAPPER})

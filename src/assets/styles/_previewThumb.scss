@@ -2,7 +2,7 @@
 	width: 250px;
 	margin: 7.5px;
 	background-color: transparentize(#fff, 0.5);
-	border: 1px solid rgb(197, 197, 197);
+	border: $main_border;
 	border-radius: 5px;
 	@include apply_flex(column, nowrap) {
 		justify-content: space-between;

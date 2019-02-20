@@ -9,17 +9,22 @@ const PreviewThumb = ({
 	i,
 	cancelBtn,
 	addBtn,
-	openDragPlayerAction }) => {
-		return(
+	openDragWrapperAction }) => {
+	return (
 		<div className='PreviewThumb'>
-				<h6 className='title'>{previewList[i].title}</h6>
-				<img src={previewList[i].thumbUrl} alt={previewList[i].title} onClick={() => { openDragPlayerAction(previewList[i]) }}/>
+			<h6 className='title'>{previewList[i].title}</h6>
+			<img
+				src={previewList[i].thumbUrl}
+				alt={previewList[i].title}
+				onClick={() => { openDragWrapperAction(previewList[i]) }}
+			/>
 			<div className="footer">
 				<Button btntype={cancelBtn}>Not interesting</Button>
 				<Button btntype={addBtn}>Add to card</Button>
 			</div>
 		</div>
-	)}
+	)
+}
 
 const mapStateToProps = state => ({
 	previewList: state.VScontent.previewList,
@@ -27,6 +32,6 @@ const mapStateToProps = state => ({
 	addBtn: state.UIsettings.addBtn
 });
 const mapDispatchToProps = dispatch => ({
-	openDragPlayerAction: (content) => dispatch(actionCreator.mountDragPlayer(content))
+	openDragWrapperAction: (content) => dispatch(actionCreator.mountDragWrapper(content))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(PreviewThumb)

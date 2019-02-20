@@ -69,7 +69,7 @@ const initialState = {
 			}
 		}
 	},
-	dragPlayer: {
+	dragWrapper: {
 		buttons: {
 			xClose: {
 				style: 'x-close-btn'

@@ -4,28 +4,24 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Button from '../../Containers/UI/Button';
-import { closeDragPlayer } from '../../../store/actions/index'
+import { closeDragWrapper } from '../../../store/actions/index';
 
-class DraggablePlayer extends Component {
+class DraggableWrapper extends Component {
 	state = {
 		relX: 0,
 		relY: 0,
 		x: 0,
-		y: 0,
-		//какие-то коэффициенты
-		gridX: 1,
-		gridY: 1
+		y: 0
 	}
 
 	onMove = e => {
-		const { relX, relY, x, y, gridX, gridY } = this.state;
-		const { } = this.props;
-		console.log(relX, relY, x, y);
-		const xUpdated = Math.trunc((e.pageX - relX) / gridX) * gridX;
-		const yUpdated = Math.trunc((e.pageY - relY) / gridY) * gridY;
+		const { relX, relY, x, y } = this.state;
+		const xUpdated = Math.trunc(e.pageX - relX);
+		const yUpdated = Math.trunc(e.pageY - relY);
+		console.log(yUpdated, xUpdated);
 		if (xUpdated !== x || yUpdated !== y) {
-			this.setState({ x: xUpdated, y: yUpdated })
-			// this.props.onUpdatePosition(xUpdated, yUpdated)
+			if (yUpdated > 0) this.setState({ x: xUpdated, y: yUpdated });
+			if (yUpdated <= 0) this.setState({ x: xUpdated, y: 0 });
 		}
 
 	}
@@ -85,31 +81,32 @@ class DraggablePlayer extends Component {
 		const {
 			isMounted,
 			isOpened,
-			isDragging,
 			buttonStyles,
-			closePlayerAction,
+			content,
+			closeWrapperAction,
 		} = this.props;
 		return (
 			<Fragment>
 				{isMounted && <div
-					className={`DragPlayer ${isOpened && 'active'}`}
+					className={`DragWrapper ${isOpened && 'active'}`}
 					style={{
 						left: this.state.x,
 						top: this.state.y
 					}}
 				>
-					<header className="dragPlayer-header">
+					<header className="dragWrapper-header">
 						<div
 							className="draggableAnchorDiv"
 							onMouseDown={this.onMouseDown}
 							onTouchStart={this.onTouchStart}
 							ref={this.getRefToDrag}
-						/>
+						>{content.title}</div>
 						<Button
 							styles={buttonStyles.xClose.style}
-							clickButtonAction={closePlayerAction}
+							clickButtonAction={closeWrapperAction}
 						/>
 					</header>
+					<div className="dragWrapper-content">{content.body}</div>
 				</div>
 				}
 			</Fragment>
@@ -119,13 +116,13 @@ class DraggablePlayer extends Component {
 
 const mapStateToProps = state => ({
 	previewList: state.VScontent.previewList,
-	isMounted: state.AppServiceState.dragPlayer.isMounted,
-	isOpened: state.AppServiceState.dragPlayer.isOpened,
-	isDragging: state.AppServiceState.dragPlayer.isDragging,
-	buttonStyles: state.UIsettings.dragPlayer.buttons
+	isMounted: state.AppServiceState.dragWrapper.isMounted,
+	isOpened: state.AppServiceState.dragWrapper.isOpened,
+	content: state.AppServiceState.dragWrapper.content,
+	buttonStyles: state.UIsettings.dragWrapper.buttons
 });
 const mapDispatchToProps = dispatch => ({
-	closePlayerAction: () => dispatch(closeDragPlayer())
+	closeWrapperAction: () => dispatch(closeDragWrapper())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DraggablePlayer)
+export default connect(mapStateToProps, mapDispatchToProps)(DraggableWrapper)

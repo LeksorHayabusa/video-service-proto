@@ -3,8 +3,7 @@ export {
 	closeModal,
 	closeBackdrop,
 	unmountModal,
-	mountDragPlayer,
-	dragPlayer,
-	closeDragPlayer,
-	unmountDragPlayer
+	mountDragWrapper,
+	closeDragWrapper,
+	unmountDragWrapper
 } from './AppServActions';

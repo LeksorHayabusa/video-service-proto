@@ -20,11 +20,14 @@ const initialState = {
 	backdrop: {
 		isOpened: false
 	},
-	dragPlayer: {
+	dragWrapper: {
 		isMounted: false,
 		isOpened: false,
 		isDragging: false,
-		content: {}
+		content: {
+			title:'',
+			body: undefined
+		}
 	}
 }
 
@@ -64,30 +67,25 @@ export default (state = initialState, { type, content }) => {
 			return updateObject(state, updatedState)
 		}
 
-//DRAGGABLE PLAYER
-		case (actionTypes.MOUNT_DRAG_PLAYER): {
+//DRAGGABLE WRAPPER
+		case (actionTypes.MOUNT_DRAG_WRAPPER): {
 			const updatedState = { ...state };
-			updatedState.dragPlayer.isMounted = true;
-			updatedState.dragPlayer.isOpened = true;
-			updatedState.dragPlayer.content = content;
+			updatedState.dragWrapper.isMounted = true;
+			updatedState.dragWrapper.isOpened = true;
+			updatedState.dragWrapper.content = content;
 			return updateObject(state, updatedState)
 		}
-		case (actionTypes.DRAG_PLAYER): {
+		case (actionTypes.CLOSE_DRAG_WRAPPER): {
 			const updatedState = { ...state };
-			updatedState.dragPlayer.isDragging = true;
+			updatedState.dragWrapper.isOpened = false;
+			updatedState.dragWrapper.isMounted = false;
+			updatedState.dragWrapper.content = initialState.dragWrapper.content;
 			return updateObject(state, updatedState)
 		}
-		case (actionTypes.CLOSE_DRAG_PLAYER): {
+		case (actionTypes.UNMOUNT_DRAG_WRAPPER): {
 			const updatedState = { ...state };
-			updatedState.dragPlayer.isOpened = false;
-			updatedState.dragPlayer.isMounted = false;
-			updatedState.dragPlayer.content = initialState.dragPlayer.content;
-			return updateObject(state, updatedState)
-		}
-		case (actionTypes.UNMOUNT_DRAG_PLAYER): {
-			const updatedState = { ...state };
-			updatedState.dragPlayer.isMounted = false;
-			updatedState.modal.content = initialState.dragPlayer.content;
+			updatedState.dragWrapper.isMounted = false;
+			updatedState.dragWrapper.content = initialState.dragWrapper.content;
 			return updateObject(state, updatedState)
 		}
 		default: return state

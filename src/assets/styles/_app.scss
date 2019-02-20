@@ -4,6 +4,7 @@ body {
 	margin: 0;
 	background-image: url('../imgs/0-02-04-77b8cbb0c9821e9239f810248a1f2ac2546b19512bea6d008bc387393e91ed65_1c6d9798a181da.jpg');
 	background-position: center center;
+	overflow: hidden;
 
 	.App {
 		@include apply_flex(column, wrap) {
