@@ -28,7 +28,6 @@ class Modal extends Component {
 			closeModalAction,
 			unmountModalAction
 		} = this.props;
-		console.log(content, 'hello from modal content');
 		return (
 			<Fragment>
 				{isMounted && <div className={`Modal ${isOpened ? 'active' : ''}`} {...attributeProps}>

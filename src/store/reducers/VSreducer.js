@@ -12,62 +12,62 @@ const initialState = {
 		{
 			id: 'a1',
 			title: 'flaimes',
-			thumbUrl: 'https://img.youtube.com/vi/Nh10gL_GP_w/0.jpg'
+			youtubeID: 'Nh10gL_GP_w'
 		} ,
 		{
 			id: 'a2',
 			title: 'flaimes',
-			thumbUrl: 'https://img.youtube.com/vi/Nh10gL_GP_w/0.jpg'
+			youtubeID: 'Nh10gL_GP_w'
 		},
 		{
 			id: 'a3',
 			title: 'flaimes',
-			thumbUrl: 'https://img.youtube.com/vi/Nh10gL_GP_w/0.jpg'
+			youtubeID: 'Nh10gL_GP_w'
 		},
 		{
 			id: 'a4',
 			title: 'flaimes',
-			thumbUrl: 'https://img.youtube.com/vi/Nh10gL_GP_w/0.jpg'
+			youtubeID: 'Nh10gL_GP_w'
 		},
 		{
 			id: 'a5',
 			title: 'flaimes',
-			thumbUrl: 'https://img.youtube.com/vi/Nh10gL_GP_w/0.jpg'
+			youtubeID: 'Nh10gL_GP_w'
 		},
 		{
 			id: 'a6',
 			title: 'flaimes',
-			thumbUrl: 'https://img.youtube.com/vi/Nh10gL_GP_w/0.jpg'
+			youtubeID: 'Nh10gL_GP_w'
 		},
 		{
 			id: 'a7',
 			title: 'flaimes',
-			thumbUrl: 'https://img.youtube.com/vi/Nh10gL_GP_w/0.jpg'
+			youtubeID: 'Nh10gL_GP_w'
 		},
 		{
 			id: 'a8',
 			title: 'flaimes',
-			thumbUrl: 'https://img.youtube.com/vi/Nh10gL_GP_w/0.jpg'
+			youtubeID: 'Nh10gL_GP_w'
 		},
 		{
 			id: 'a9',
 			title: 'flaimes',
-			thumbUrl: 'https://img.youtube.com/vi/Nh10gL_GP_w/0.jpg'
+			youtubeID: 'Nh10gL_GP_w'
 		},
 		{
 			id: 'a10',
 			title: 'flaimes',
-			thumbUrl: 'https://img.youtube.com/vi/Nh10gL_GP_w/0.jpg'
+			youtubeID: 'Nh10gL_GP_w'
 		},
 		{
 			id: 'a11',
 			title: 'flaimes',
-			thumbUrl: 'https://img.youtube.com/vi/Nh10gL_GP_w/0.jpg'
+			youtubeID: 'Nh10gL_GP_w'
 		},
 		{
 			id: 'a12',
 			title: 'flaimes',
-			thumbUrl: 'https://img.youtube.com/vi/Nh10gL_GP_w/0.jpg'
+			youtubeID: 'Nh10gL_GP_w'
 		},
 	]
 }

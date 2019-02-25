@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import Button from '../../Containers/UI/Button';
-import { closeDragWrapper } from '../../../store/actions/index';
+import Button from '../share/Containers/UI/Button';
+import { closeDragWrapper } from '../store/actions/index';
 
 class DraggableWrapper extends Component {
 	state = {
@@ -18,7 +18,6 @@ class DraggableWrapper extends Component {
 		const { relX, relY, x, y } = this.state;
 		const xUpdated = Math.trunc(e.pageX - relX);
 		const yUpdated = Math.trunc(e.pageY - relY);
-		console.log(yUpdated, xUpdated);
 		if (xUpdated !== x || yUpdated !== y) {
 			if (yUpdated > 0) this.setState({ x: xUpdated, y: yUpdated });
 			if (yUpdated <= 0) this.setState({ x: xUpdated, y: 0 });
@@ -79,15 +78,15 @@ class DraggableWrapper extends Component {
 
 	render() {
 		const {
-			isMounted,
 			isOpened,
 			buttonStyles,
 			content,
+			children,
 			closeWrapperAction,
 		} = this.props;
 		return (
 			<Fragment>
-				{isMounted && <div
+				<div
 					className={`DragWrapper ${isOpened && 'active'}`}
 					style={{
 						left: this.state.x,
@@ -106,9 +105,8 @@ class DraggableWrapper extends Component {
 							clickButtonAction={closeWrapperAction}
 						/>
 					</header>
-					<div className="dragWrapper-content">{content.body}</div>
+					<div className="dragWrapper-content">{children}</div>
 				</div>
-				}
 			</Fragment>
 		)
 	}
@@ -116,7 +114,6 @@ class DraggableWrapper extends Component {
 
 const mapStateToProps = state => ({
 	previewList: state.VScontent.previewList,
-	isMounted: state.AppServiceState.dragWrapper.isMounted,
 	isOpened: state.AppServiceState.dragWrapper.isOpened,
 	content: state.AppServiceState.dragWrapper.content,
 	buttonStyles: state.UIsettings.dragWrapper.buttons

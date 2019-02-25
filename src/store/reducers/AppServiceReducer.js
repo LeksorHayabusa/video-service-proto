@@ -25,8 +25,8 @@ const initialState = {
 		isOpened: false,
 		isDragging: false,
 		content: {
-			title:'',
-			body: undefined
+			title: '',
+			body: {}
 		}
 	}
 }
@@ -49,7 +49,6 @@ export default (state = initialState, { type, content }) => {
 		// we empty the modal window to clear the resources.
 		case (actionTypes.CLOSE_MODAL): {
 			const updatedState = { ...state };
-			// updatedState.modal.content = 'after remove';
 			updatedState.modal.isOpened = false;
 			return updateObject(state, updatedState)
 		}
@@ -73,6 +72,7 @@ export default (state = initialState, { type, content }) => {
 			updatedState.dragWrapper.isMounted = true;
 			updatedState.dragWrapper.isOpened = true;
 			updatedState.dragWrapper.content = content;
+			console.log(content);
 			return updateObject(state, updatedState)
 		}
 		case (actionTypes.CLOSE_DRAG_WRAPPER): {

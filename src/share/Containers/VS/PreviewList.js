@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import PreviewThumb from './PreviewThumb';
-import DraggableWrapper from '../../Components/VS/DraggableWrapper';
+import DraggableWrapper from '../../../hoc/DraggableWrapper';
 
 export const PreviewList = ({ previewList }) => (
 	<div className='PreviewList'>
-		<DraggableWrapper/>
+		{isMountedWrapper && <DraggableWrapper></DraggableWrapper>}
 		{previewList && previewList.map((el, i) => (
 			<Fragment key={i}>
 				<PreviewThumb i={i} />
@@ -16,7 +16,10 @@ export const PreviewList = ({ previewList }) => (
 	</div>
 )
 
-const mapStateToProps = state => ({ previewList: state.VScontent.previewList });
+const mapStateToProps = state => ({ 
+	isMountedWrapper: state.AppServiceState.dragWrapper.isMounted,
+	previewList: state.VScontent.previewList
+});
 const mapDispatchToProps = dispatch => ({});
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PreviewList))

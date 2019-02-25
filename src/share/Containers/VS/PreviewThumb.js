@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
 
 import Button from '../../Containers/UI/Button';
 import * as actionCreator from '../../../store/actions/index'
+import EmbeddedPlayer from "./EmbeddedPlayer";
 
 const PreviewThumb = ({
 	previewList,
@@ -14,9 +16,18 @@ const PreviewThumb = ({
 		<div className='PreviewThumb'>
 			<h6 className='title'>{previewList[i].title}</h6>
 			<img
-				src={previewList[i].thumbUrl}
+				src={`https://img.youtube.com/vi/${previewList[i].youtubeID}/0.jpg`}
 				alt={previewList[i].title}
-				onClick={() => { openDragWrapperAction(previewList[i]) }}
+				onClick={() => {
+					openDragWrapperAction({
+						title: previewList[i].title,
+						element: EmbeddedPlayer,
+						props: {
+							youtubeID: previewList[i].youtubeID
+						}
+						// body: <EmbeddedPlayer youtubeID={previewList[i].youtubeID} />
+					})
+				}}
 			/>
 			<div className="footer">
 				<Button btntype={cancelBtn}>Not interesting</Button>
@@ -25,6 +36,10 @@ const PreviewThumb = ({
 		</div>
 	)
 }
+
+// const PropTypes = {
+// 	PreviewThumb
+// }
 
 const mapStateToProps = state => ({
 	previewList: state.VScontent.previewList,
