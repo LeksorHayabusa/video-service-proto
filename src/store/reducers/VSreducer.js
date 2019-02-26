@@ -1,3 +1,5 @@
+//this reducer created for storing fetched data
+//needed for the whole vs app
 import * as actionTypes from '../actions/actionTypes';
 import { } from '../actions/index';
 
@@ -11,8 +13,8 @@ const initialState = {
 	previewList: [
 		{
 			id: 'a1',
-			title: 'flaimes',
-			youtubeID: 'Nh10gL_GP_w'
+			title: 'bring me the horizont some text',
+			youtubeID: 'Ow_qI_F2ZJI'
 		} ,
 		{
 			id: 'a2',
@@ -21,8 +23,8 @@ const initialState = {
 		},
 		{
 			id: 'a3',
-			title: 'flaimes',
-			youtubeID: 'Nh10gL_GP_w'
+			title: 'bring me the horizont',
+			youtubeID: 'Ow_qI_F2ZJI'
 		},
 		{
 			id: 'a4',
@@ -31,8 +33,8 @@ const initialState = {
 		},
 		{
 			id: 'a5',
-			title: 'flaimes',
-			youtubeID: 'Nh10gL_GP_w'
+			title: 'bring me the horizont',
+			youtubeID: 'Ow_qI_F2ZJI'
 		},
 		{
 			id: 'a6',
@@ -41,8 +43,8 @@ const initialState = {
 		},
 		{
 			id: 'a7',
-			title: 'flaimes',
-			youtubeID: 'Nh10gL_GP_w'
+			title: 'bring me the horizont',
+			youtubeID: 'Ow_qI_F2ZJI'
 		},
 		{
 			id: 'a8',
@@ -51,8 +53,8 @@ const initialState = {
 		},
 		{
 			id: 'a9',
-			title: 'flaimes',
-			youtubeID: 'Nh10gL_GP_w'
+			title: 'bring me the horizont',
+			youtubeID: 'Ow_qI_F2ZJI'
 		},
 		{
 			id: 'a10',
@@ -61,8 +63,8 @@ const initialState = {
 		},
 		{
 			id: 'a11',
-			title: 'flaimes',
-			youtubeID: 'Nh10gL_GP_w'
+			title: 'bring me the horizont',
+			youtubeID: 'Ow_qI_F2ZJI'
 		},
 		{
 			id: 'a12',

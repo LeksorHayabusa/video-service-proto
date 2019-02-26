@@ -23,11 +23,10 @@ const initialState = {
 	dragWrapper: {
 		isMounted: false,
 		isOpened: false,
-		isDragging: false,
-		content: {
-			title: '',
-			body: {}
-		}
+		// content: {
+		// 	title: '',
+		// 	body: {}
+		// },
 	}
 }
 
@@ -71,21 +70,20 @@ export default (state = initialState, { type, content }) => {
 			const updatedState = { ...state };
 			updatedState.dragWrapper.isMounted = true;
 			updatedState.dragWrapper.isOpened = true;
-			updatedState.dragWrapper.content = content;
-			console.log(content);
+			// updatedState.dragWrapper.content = content;
 			return updateObject(state, updatedState)
 		}
 		case (actionTypes.CLOSE_DRAG_WRAPPER): {
 			const updatedState = { ...state };
 			updatedState.dragWrapper.isOpened = false;
 			updatedState.dragWrapper.isMounted = false;
-			updatedState.dragWrapper.content = initialState.dragWrapper.content;
+			// updatedState.dragWrapper.content = initialState.dragWrapper.content;
 			return updateObject(state, updatedState)
 		}
 		case (actionTypes.UNMOUNT_DRAG_WRAPPER): {
 			const updatedState = { ...state };
 			updatedState.dragWrapper.isMounted = false;
-			updatedState.dragWrapper.content = initialState.dragWrapper.content;
+			// updatedState.dragWrapper.content = initialState.dragWrapper.content;
 			return updateObject(state, updatedState)
 		}
 		default: return state

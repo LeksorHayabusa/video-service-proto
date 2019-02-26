@@ -99,7 +99,7 @@ class DraggableWrapper extends Component {
 							onMouseDown={this.onMouseDown}
 							onTouchStart={this.onTouchStart}
 							ref={this.getRefToDrag}
-						>{content.title}</div>
+						>{this.props.title}</div>
 						<Button
 							styles={buttonStyles.xClose.style}
 							clickButtonAction={closeWrapperAction}

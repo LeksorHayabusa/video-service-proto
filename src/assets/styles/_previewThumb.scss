@@ -13,6 +13,11 @@
 		padding: .15rem;
 		margin: 0;
 		font-size: $thumb-title;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 100%;
+		text-transform: capitalize;
 	}
 	
 	& img {
@@ -20,6 +25,7 @@
 		object-fit: contain;
 		object-position: 50% 50%;
 		background-color: #000;
+		cursor: pointer;
 	}
 
 	& .footer {

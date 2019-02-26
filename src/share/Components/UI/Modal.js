@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Button from '../../Containers/UI/Button';
 import * as actionCreator from '../../../store/actions/index';
-import styleNames from '../../../assets/styles/styles.scss';
+import animationTypes from '../../../assets/styles/styles.scss';
 
 class Modal extends Component {
 	static propTypes = {
@@ -35,7 +35,7 @@ class Modal extends Component {
 						{content && (
 							<div className='modal-body' onAnimationEnd={
 								({ animationName }) => {
-									animationName === styleNames.closeModalKeyframes &&
+									animationName === animationTypes.closeModalKeyframes &&
 										unmountModalAction()
 								}}>
 								<div className="modal-header">
