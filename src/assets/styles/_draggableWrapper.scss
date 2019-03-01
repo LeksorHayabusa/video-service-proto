@@ -3,10 +3,6 @@
 		//space for animation
 	}
 
-	&.changing {
-		@include flash_effect(in);
-	}
-
 	@include apply_flex() {
 		justify-content: space-between;
 		align-content: center;

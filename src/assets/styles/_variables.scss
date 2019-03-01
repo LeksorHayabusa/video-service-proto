@@ -2,12 +2,12 @@
 //                          !!!                          \\
 $close-modal-keyframes-name: close !default;
 $open-modal-keyframes-name:  open !default;
-$flash_effect:                flash_effect !default;
+$flash_in_effect:            flash_in_effect !default;
 //This export redefines variables used in css animation and js modules.
 :export { 
   closeModalKeyframes: $close-modal-keyframes-name;
   openModalKeyframes: $open-modal-keyframes-name;
-  flashEffect: $flash_effect;
+  flashInEffect: $flash_in_effect;
 };
 //                          !!!                          \\
 

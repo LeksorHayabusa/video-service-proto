@@ -2,6 +2,10 @@
 	padding-top: $modal-header-padding/2;
 	height: 100%;
 
+	&.changing {
+		@include flash_in_effect(in);
+	}
+
 	& iframe {
 		width: 100%;
 		height: 100%;
