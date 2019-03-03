@@ -1,21 +1,12 @@
+//EFFECTS
+//animation
 
-//                          !!!                          \\
+//reserved words for animations
 $close-modal-keyframe: close !default;
 $open-modal-keyframe:  open !default;
 //used in flash effect animation
 $flash_in:               flash_in !default;
 $flash_out:               flash_out !default;
-//This export redefines variables used in css animation and js modules.
-:export { 
-  closeModalKeyframes: $close-modal-keyframe;
-  openModalKeyframes: $open-modal-keyframe;
-  flashIn: $flash_in;
-};
-//                          !!!                          \\
-
-
-//EFFECTS
-//animation
 
 $animation-timing: 0.3s !default;
 $flash-animation-timing: $animation-timing;

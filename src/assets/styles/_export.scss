@@ -1,0 +1,6 @@
+//This export redefines variables used in css animation and js modules.
+:export { 
+  closeModalKeyframes: $close-modal-keyframe;
+  openModalKeyframes: $open-modal-keyframe;
+  flashIn: $flash_in;
+};
