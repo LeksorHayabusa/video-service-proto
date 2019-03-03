@@ -3,7 +3,8 @@
 	height: 100%;
 
 	&.changing {
-		@include flash_in_effect(in);
+		animation: $embedded-player-flashing;
+		@include flash_keyframes(in);
 	}
 
 	& iframe {

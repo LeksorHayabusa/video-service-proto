@@ -1,5 +1,5 @@
 @mixin hide_backdrop {
-	animation: hideBackDrop 0.3s ease-in 1;
+	animation: hideBackDrop $backdrop-animation-timing ease-in 1;
 	background-color: transparentize(#000, 1);
 	opacity: 0;
 	z-index: -5;
@@ -17,7 +17,7 @@
 }
 
 @mixin show_backdrop {
-	animation: showBackDrop 0.3s ease-out 1;
+	animation: showBackDrop $backdrop-animation-timing ease-out 1;
 	opacity: 1;
 	background-color: transparentize(#000, 0.4);
 	@keyframes showBackDrop {

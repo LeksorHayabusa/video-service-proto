@@ -48,7 +48,7 @@ class EmbeddingPlayer extends Component {
 			<div className={this.state.className}
 				onAnimationEnd={
 					({ animationName }) => {
-						console.log(animationName, 'animationName and waited name', animationTypes.flashInEffect, 'hello from animation end');
+						console.log(animationName, 'animationName and waited name', animationTypes.flashIn, 'hello from animation end');
 						if(animationName === animationTypes.flashInEffect) {
 							this.applyClassName(false)
 					}}}

@@ -2,14 +2,14 @@
 		&.active {
 			.modal-body {
 				animation: $modal-transition-in;
-				@include dropdown_key_frames($open-modal-keyframes-name);
+				@include dropdown_key_frames($open-modal-keyframe);
 			}
 	}
 	
 		&:not(.active) {
 			.modal-body {
 				animation: $modal-transition-out;
-				@include dropdown_key_frames($close-modal-keyframes-name);
+				@include dropdown_key_frames($close-modal-keyframe);
 		}
 	}
 

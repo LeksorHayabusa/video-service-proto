@@ -1,15 +1,26 @@
 
 //                          !!!                          \\
-$close-modal-keyframes-name: close !default;
-$open-modal-keyframes-name:  open !default;
-$flash_in_effect:            flash_in_effect !default;
+$close-modal-keyframe: close !default;
+$open-modal-keyframe:  open !default;
+//used in flash effect animation
+$flash_in:               flash_in !default;
+$flash_out:               flash_out !default;
 //This export redefines variables used in css animation and js modules.
 :export { 
-  closeModalKeyframes: $close-modal-keyframes-name;
-  openModalKeyframes: $open-modal-keyframes-name;
-  flashInEffect: $flash_in_effect;
+  closeModalKeyframes: $close-modal-keyframe;
+  openModalKeyframes: $open-modal-keyframe;
+  flashIn: $flash_in;
 };
 //                          !!!                          \\
+
+
+//EFFECTS
+//animation
+
+$animation-timing: 0.3s !default;
+$flash-animation-timing: $animation-timing;
+$backdrop-animation-timing: $animation-timing;
+$modal-animation-timing: $animation-timing;
 
 //borders
 $main_border: 1px solid #b0bec5 !default;
@@ -127,17 +138,19 @@ $zindex-popover:                    1060 !default;
 $zindex-tooltip:                    1070 !default;
 
 
-//Modal styles from Bootstrap
+//Modal animation from Bootstrap
 
-$modal-transition:                  transform .3s ease-out !default;
-$modal-transition-in: $open-modal-keyframes-name 0.3s ease-out forwards !default;
-$modal-transition-out: $close-modal-keyframes-name 0.3s ease-out forwards !default;
+$modal-transition:                  transform $modal-animation-timing ease-out !default;
+$modal-transition-in: $open-modal-keyframe $modal-animation-timing ease-out forwards !default;
+$modal-transition-out: $close-modal-keyframe $modal-animation-timing ease-out forwards !default;
+
+//Modal styles from Bootstrap
 $modal-title-line-height:           $line-height-base !default;
 $modal-header-padding:              1rem !default;$modal-header-padding-y:            1rem !default;
 $modal-header-padding-x:            1rem !default;
 $modal-footer-padding:              .5rem !default;
 
-// Modals
+// Modals sizing
 
 // Padding applied to the modal body
 $modal-inner-padding:               1rem !default;
@@ -146,6 +159,10 @@ $modal-dialog-margin:               .5rem !default;
 $modal-dialog-margin-y-sm-up:       1.75rem !default;
 
 $modal-title-line-height:           $line-height-base !default;
+
+//Embedded player animation
+$embedded-player-flashing: flash_in $flash-animation-timing ease-out;
+
 
 // stylelint-disable value-keyword-case
 $font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
