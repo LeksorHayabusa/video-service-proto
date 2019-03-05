@@ -2,11 +2,12 @@
 //animation
 
 //reserved words for animations
-$close-modal-keyframe: close !default;
-$open-modal-keyframe:  open !default;
-//used in flash effect animation
-$flash_in:               flash_in !default;
+$close-modal-keyframe:    close !default;
+$open-modal-keyframe:     open !default;
+$flash_in:                flash_in !default;
 $flash_out:               flash_out !default;
+$show_backdrop:           show_backdrop !default;
+$hide_backdrop:           hide_backdrop !default;
 
 $animation-timing: 0.3s !default;
 $flash-animation-timing: $animation-timing;

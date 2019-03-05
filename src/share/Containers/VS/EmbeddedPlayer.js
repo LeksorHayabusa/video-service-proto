@@ -15,7 +15,6 @@ class EmbeddingPlayer extends Component {
 	// }
 
 	applyClassName = (isChanging) => {
-		console.log('hi every time from changing func')
 		const classArray = ['EmbeddingPlayer'];
 		let className;
 		if (isChanging) {
@@ -23,12 +22,11 @@ class EmbeddingPlayer extends Component {
 			className = classArray.join(" ");
 		}
 		if (!isChanging){ className = classArray.join(" ") };
-		console.log('classname is applied', className);
 		return this.setState({className})
 	}
 
-	componentDidUpdate = (prevProps) => {
-		console.log('compoent did update with', prevProps.youtubeID);
+	componentDidMount = () => {
+		this.applyClassName(true);
 	}
 
 	componentWillReceiveProps = (nextProps) => {
@@ -36,7 +34,6 @@ class EmbeddingPlayer extends Component {
 		const prevItem = this.props.youtubeID;
 		if (nextItem !== prevItem) {
 			// this.previewChangeAction(true);
-			console.log('it gets props twice')
 			this.applyClassName(true)
 		}
 	}
@@ -48,8 +45,8 @@ class EmbeddingPlayer extends Component {
 			<div className={this.state.className}
 				onAnimationEnd={
 					({ animationName }) => {
-						console.log(animationName, 'animationName and waited name', animationTypes.flashIn, 'hello from animation end');
-						if(animationName === animationTypes.flashInEffect) {
+						console.log(animationName, ' - animationName and expected name:', animationTypes.flashIn, 'hello from animation end');
+						if(animationName === animationTypes.flashIn) {
 							this.applyClassName(false)
 					}}}
 			>

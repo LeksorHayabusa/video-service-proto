@@ -3,34 +3,12 @@
 	background-color: transparentize(#000, 1);
 	opacity: 0;
 	z-index: -5;
-
-	@keyframes hideBackDrop {
-		0% {
-			opacity: 1;
-			z-index: $zindex-modal-backdrop;
-			background-color: transparentize(#000, 0.4);
-		}
-		100% {
-			opacity: 0;
-		}
-	}
+	@include backdrop_keyframes($show_backdrop);
 }
 
 @mixin show_backdrop {
 	animation: showBackDrop $backdrop-animation-timing ease-out 1;
 	opacity: 1;
 	background-color: transparentize(#000, 0.4);
-	@keyframes showBackDrop {
-		0% {
-			opacity: 0;
-			z-index: -5;
-		}
-		99% {
-			opacity: 1;
-			background-color: transparentize(#000, 0.4);
-		}
-		100% {
-			z-index: $zindex-modal-backdrop;
-		}
-	}
+	@include backdrop_keyframes($hide_backdrop);
 }

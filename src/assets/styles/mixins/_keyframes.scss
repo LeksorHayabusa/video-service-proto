@@ -51,3 +51,30 @@
   }
 }
 
+@mixin backdrop_keyframes($action) {
+	@keyframes #{$show_backdrop} {
+		0% {
+			opacity: 0;
+			z-index: -5;
+		}
+		99% {
+			opacity: 1;
+			background-color: transparentize(#000, 0.4);
+		}
+		100% {
+			z-index: $zindex-modal-backdrop;
+		}
+	}
+
+	@keyframes #{$hide_backdrop} {
+		0% {
+			opacity: 1;
+			z-index: $zindex-modal-backdrop;
+			background-color: transparentize(#000, 0.4);
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+}
+
