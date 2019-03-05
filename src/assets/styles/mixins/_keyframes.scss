@@ -29,7 +29,7 @@
   }
 }
 
-@mixin flash_keyframes($action) {
+@mixin flash_keyframes() {
   @keyframes #{$flash_in} {
     0% {
       opacity: 1;

@@ -4,7 +4,7 @@
 
 	&.changing {
 		animation: $embedded-player-flashing;
-		@include flash_keyframes(in);
+		@include flash_keyframes();
 	}
 
 	& iframe {

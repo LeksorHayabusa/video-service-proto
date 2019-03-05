@@ -1,0 +1,1 @@
+export const EXPECTED_DEFINED_KEYFRAME_NAME = 'keyframe`s name is undefined, expected name from styles.scss/_export.scss';

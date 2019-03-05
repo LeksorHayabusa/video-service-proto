@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import animationTypes from '../../../assets/styles/styles.scss';
+import { keyframeNameCheck } from '../../../tests/CustomErrors/errors';
 
 class EmbeddingPlayer extends Component {
-	state = {
-		// isChanging: true
-		className: ''
+	static propTypes = {
+		previewList: PropTypes.array.isRequired,
+		youtubeID: PropTypes.string.isRequired
 	}
 
-	// previewChangeAction = (isChanging) => {
-	// 	console.log('ischanging bool getting changed')
-	// 	this.setState({ isChanging });
-	// }
+	state = {
+		className: ''
+	}
 
 	applyClassName = (isChanging) => {
 		const classArray = ['EmbeddingPlayer'];
@@ -21,34 +22,32 @@ class EmbeddingPlayer extends Component {
 			classArray.push('changing');
 			className = classArray.join(" ");
 		}
-		if (!isChanging){ className = classArray.join(" ") };
-		return this.setState({className})
+		if (!isChanging) { className = classArray.join(" ") };
+		return this.setState({ className })
 	}
 
-	componentDidMount = () => {
-		this.applyClassName(true);
-	}
+	componentDidMount = () => this.applyClassName(true);
 
 	componentWillReceiveProps = (nextProps) => {
 		const nextItem = nextProps.youtubeID;
 		const prevItem = this.props.youtubeID;
 		if (nextItem !== prevItem) {
-			// this.previewChangeAction(true);
 			this.applyClassName(true)
 		}
 	}
 
 	render() {
 		const { youtubeID } = this.props;
-		// let className = this.applyClassName(this.state.isChanging);
 		return (
 			<div className={this.state.className}
 				onAnimationEnd={
 					({ animationName }) => {
-						console.log(animationName, ' - animationName and expected name:', animationTypes.flashIn, 'hello from animation end');
-						if(animationName === animationTypes.flashIn) {
-							this.applyClassName(false)
-					}}}
+						const expectedKeyframeName = animationTypes.flashIn;
+						if (animationName === expectedKeyframeName) {
+							return this.applyClassName(false)
+						}
+						keyframeNameCheck(expectedKeyframeName)
+					}}
 			>
 				{youtubeID ? (<iframe src={`https://www.youtube.com/embed/${youtubeID}?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp;width=560&amp;width=560`} width="560" height="315" allowtransparency="true" frameBorder="0" />) : 'no content available'}
 			</div>
