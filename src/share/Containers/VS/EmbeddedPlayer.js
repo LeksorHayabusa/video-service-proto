@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import stylesNameList from '../../../assets/styles/styles.scss';
-// import { keyframeNameCheck } from '../../../tests/CustomErrors/errors';
+import { styleNameCheck } from '../../../ErrorHandling/errors';
 
 export class EmbeddedPlayer extends Component {
 	static propTypes = {
@@ -31,7 +31,7 @@ export class EmbeddedPlayer extends Component {
 		if (animationName === expectedKeyframeName) {
 			return this.applyClassName(false)
 		}
-		// keyframeNameCheck(expectedKeyframeName)
+		styleNameCheck(expectedKeyframeName)
 	}
 
 	componentDidMount = () => this.applyClassName(true);
@@ -52,7 +52,6 @@ export class EmbeddedPlayer extends Component {
 					this.animationHandler(e,stylesNameList.flashIn)}
 			>
 				{youtubeID ? (<iframe src={`https://www.youtube.com/embed/${youtubeID}?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp;width=560&amp;width=560`} width="560" height="315" allowtransparency="true" frameBorder="0" />) : 'no content available'}
-				<div className="bla">хело</div>
 			</div>
 		)
 	}

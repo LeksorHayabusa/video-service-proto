@@ -1,0 +1,1 @@
+export const EXPECTED_DEFINED_STYLE_NAME = 'style name is undefined, expected name from styles.scss/_export.scss';

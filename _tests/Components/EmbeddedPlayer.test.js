@@ -27,8 +27,11 @@ describe('<EmbeddedPlayer', () => {
 		expect(wrapperAsFunc.state.className).toMatch(new RegExp(EmbeddedPlayer + ' ' + changing, 'gm'));
 	});
 
-	it('must render iframe if youtubeid passed', () => {
-		// wrapper.props.youtubeID = undefined;
+	it('must render iframe only if youtubeid is passed', () => {
+		wrapper = shallow(<ComponentUnderTheTest youtubeID='anID'/>);
 		expect(wrapper.find('iframe').length).toEqual(1);
+
+		wrapper = shallow(<ComponentUnderTheTest youtubeID={undefined}/>);
+		expect(wrapper.find('iframe').length).toEqual(0);
 	})
 })
