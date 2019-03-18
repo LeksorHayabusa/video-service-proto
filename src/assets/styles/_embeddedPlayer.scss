@@ -1,8 +1,8 @@
-.EmbeddingPlayer {
+.#{$EmbeddedPlayer} {
 	padding-top: $modal-header-padding/2;
 	height: 100%;
 
-	&.changing {
+	&.#{$changing} {
 		animation: $embedded-player-flashing;
 		@include flash_keyframes();
 	}

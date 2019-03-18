@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55% </span>
+        <span class="strong">60% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/20</span>
+        <span class='fraction'>12/20</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">30% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/10</span>
+        <span class='fraction'>5/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">42.86% </span>
@@ -104,7 +104,8 @@
 59
 60
 61
-62</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+62
+63</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -118,28 +119,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,7 +142,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -155,10 +161,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -169,23 +171,28 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 &nbsp;
-import animationTypes from '../../../assets/styles/styles.scss';
+import stylesNameList from '../../../assets/styles/styles.scss';
 // import { keyframeNameCheck } from '../../../tests/CustomErrors/errors';
 &nbsp;
 export class EmbeddedPlayer extends Component {
+	static propTypes = {
+		previewList: PropTypes.array.isRequired,
+		youtubeID: PropTypes.string.isRequired
+	}
 &nbsp;
 	state = {
 		className: ''
 	}
 &nbsp;
 	applyClassName = (isChanging) =&gt; {
-		const classArray = ['EmbeddedPlayer'];
+		const  { EmbeddedPlayer, changing } = stylesNameList;
+		const classArray = [EmbeddedPlayer];
 		let className;
-		<span class="missing-if-branch" title="else path not taken" >E</span>if (isChanging) {
-			classArray.push('changing');
+		if (isChanging) { 
+			classArray.push(changing);
 			className = classArray.join(" ");
 		}
-		<span class="missing-if-branch" title="if path not taken" >I</span>if (!isChanging) { <span class="cstat-no" title="statement not covered" >className = classArray.join(" ") </span>};
+		if (!isChanging) { className = classArray.join(" ") };
 		return this.setState({ className })
 	}
 &nbsp;
@@ -210,18 +217,14 @@ export class EmbeddedPlayer extends Component {
 		const { youtubeID } = this.props;
 		return (
 			&lt;div className={this.state.className}
-				onAnimationEnd={<span class="fstat-no" title="function not covered" >()</span> =&gt; 
-<span class="cstat-no" title="statement not covered" >					this.animationHandler(e,animationTypes.flashIn)}</span>
+				onAnimationEnd={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; 
+<span class="cstat-no" title="statement not covered" >					this.animationHandler(e,stylesNameList.flashIn)}</span>
 			&gt;
 				{youtubeID ? (&lt;iframe src={`https://www.youtube.com/embed/${youtubeID}?ecver=1&amp;amp;iv_load_policy=3&amp;amp;rel=0&amp;amp;showinfo=0&amp;amp;yt:stretch=16:9&amp;amp;autohide=1&amp;amp;color=red&amp;amp;width=560&amp;amp;width=560`} width="560" height="315" allowtransparency="true" frameBorder="0" /&gt;) : <span class="branch-1 cbranch-no" title="branch not covered" >'no content available'}</span>
+				&lt;div className="bla"&gt;хело&lt;/div&gt;
 			&lt;/div&gt;
 		)
 	}
-}
-&nbsp;
-EmbeddedPlayer.propTypes = {
-	previewList: PropTypes.array.isRequired,
-	youtubeID: PropTypes.string.isRequired
 }
 &nbsp;
 const mapStateToProps = <span class="fstat-no" title="function not covered" >st</span>ate =&gt; (<span class="cstat-no" title="statement not covered" >{ previewList: state.VScontent.previewList })</span>;
@@ -232,7 +235,7 @@ export default connect(mapStateToProps, null)(EmbeddedPlayer)</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Mar 16 2019 12:17:07 GMT+0200 (GMT+02:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 18 2019 21:09:25 GMT+0200 (GMT+02:00)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

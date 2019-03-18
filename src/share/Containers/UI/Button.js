@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { requiredIf } from '../../../tests/util';
+import { requiredIf } from '../../../propTypes/util';
 const Button = ({
 	children,
 	styles,
@@ -17,10 +17,10 @@ const Button = ({
 	)
 
 Button.propTypes = {
-	children: requiredIf(PropTypes.string, ({children})=> children !== undefined),
-	styles: requiredIf(PropTypes.string, ({styles})=> styles !== undefined),
-	disabled: requiredIf(PropTypes.bool, ({disabled}) => disabled !== undefined),
-	clickButtonAction: requiredIf(PropTypes.func, ({disabled}) => disabled !== undefined)
+	children: requiredIf(PropTypes.string, ({ children }) => children !== undefined),
+	styles: requiredIf(PropTypes.string, ({ styles }) => styles !== undefined),
+	disabled: requiredIf(PropTypes.bool, ({ disabled }) => disabled !== undefined),
+	clickButtonAction: requiredIf(PropTypes.func, ({ disabled }) => disabled !== undefined)
 }
 
 export default Button;
