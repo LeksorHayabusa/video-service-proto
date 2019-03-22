@@ -5,60 +5,40 @@ import PropTypes from "prop-types";
 import Button from '../../Containers/UI/Button';
 import * as actionCreator from '../../../store/actions/index'
 
-class PreviewThumb extends Component {
-	// state = { 
-	// 	isChanging: true
-	// }
-
-	// previewChangeAction = (isChanging) => this.setState({ isChanging });
-	
-	// componentWillReceiveProps = (nextProps) => {
-	// 	const nextItem = nextProps.previewList[nextProps.i];
-	// 	const prevItem = this.props.previewList[this.props.i];
-	// 	if (nextItem != prevItem) {
-	// 		this.previewChangeAction(true);
-	// 	}
-	// }
-
-	render() {
-		const {
-			previewList,
-			i,
-			cancelBtn,
-			addBtn,
-			getClickedIndexAction,
-			openDragWrapperAction
-		} = this.props;
-		// const { isChanging }= this.state;
-		return (
-			<div className='PreviewThumb' >
-				<h6 className='title'>{previewList[i].title}</h6>
-				<img
-					src={`https://img.youtube.com/vi/${previewList[i].youtubeID}/0.jpg`}
-					alt={previewList[i].title}
-					onClick={() => {
-						getClickedIndexAction(i);
-						openDragWrapperAction()
-					}}
-				/>
-				<div className="footer">
-					<Button btntype={cancelBtn}>Not interesting</Button>
-					<Button btntype={addBtn}>Add to card</Button>
-				</div>
+export const PreviewThumb = ({
+	previewList,
+	i,
+	buttonStyles,
+	getClickedIndexAction,
+	openDragWrapperAction
+}) => (
+		<div className='PreviewThumb' >
+			<h6 className='title'>{previewList[i].title}</h6>
+			<img
+				src={`https://img.youtube.com/vi/${previewList[i].youtubeID}/0.jpg`}
+				alt={previewList[i].title}
+				onClick={() => {
+					getClickedIndexAction(i);
+					openDragWrapperAction()
+				}}
+			/>
+			<div className="footer">
+				<Button styles={buttonStyles.cancel.styles}>Not interesting</Button>
+				<Button styles={buttonStyles.add.styles}>Add to card</Button>
 			</div>
-		)
-	}
-}
+		</div>
+	)
 
-// const PropTypes = {
-// 	PreviewThumb
-// }
+PreviewThumb.propTypes = {
+	previewList: PropTypes.array,
+	i: PropTypes.number,
+	cancelBtn: PropTypes.string
+}
 
 const mapStateToProps = state => ({
 	isMounted: state.AppServiceState.APARAM,
 	previewList: state.VScontent.previewList,
-	cancelBtn: state.UIsettings.cancelBtn,
-	addBtn: state.UIsettings.addBtn
+	buttonStyles: state.UIsettings.global.buttons
 });
 const mapDispatchToProps = dispatch => ({
 	openDragWrapperAction: (content) => dispatch(actionCreator.mountDragWrapper(content))

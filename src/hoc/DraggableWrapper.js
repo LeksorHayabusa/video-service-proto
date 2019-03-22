@@ -85,29 +85,27 @@ class DraggableWrapper extends Component {
 			closeWrapperAction,
 		} = this.props;
 		return (
-			<Fragment>
-				<div
-					className={`DragWrapper ${isOpened && 'active'}`}
-					style={{
-						left: this.state.x,
-						top: this.state.y
-					}}
-				>
-					<header className="dragWrapper-header">
-						<div
-							className="draggableAnchorDiv"
-							onMouseDown={this.onMouseDown}
-							onTouchStart={this.onTouchStart}
-							ref={this.getRefToDrag}
-						>{this.props.title}</div>
-						<Button
-							styles={buttonStyles.xClose.style}
-							clickButtonAction={closeWrapperAction}
-						/>
-					</header>
-					<div className="dragWrapper-content">{children}</div>
-				</div>
-			</Fragment>
+			<div
+				className={`DragWrapper ${isOpened && 'active'}`}
+				style={{
+					left: this.state.x,
+					top: this.state.y
+				}}
+			>
+				<header className="dragWrapper-header">
+					<div
+						className="draggableAnchorDiv"
+						onMouseDown={this.onMouseDown}
+						onTouchStart={this.onTouchStart}
+						ref={this.getRefToDrag}
+					>{this.props.title}</div>
+					<Button
+						styles={buttonStyles.xClose.style}
+						clickButtonAction={closeWrapperAction}
+					/>
+				</header>
+				<div className="dragWrapper-content">{children}</div>
+			</div>
 		)
 	}
 }

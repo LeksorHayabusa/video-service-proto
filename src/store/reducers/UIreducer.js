@@ -3,6 +3,16 @@ import actions from '../actions/index';
 import { updateObject } from '../utils';
 
 const initialState = {
+	global: {
+		buttons: {
+			add: {
+				styles: 'add'
+			},
+			cancel: {
+				styles: 'cancel'
+			}
+		}
+	},
 	nav: {
 		header: [
 			{

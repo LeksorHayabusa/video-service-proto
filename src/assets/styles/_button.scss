@@ -5,21 +5,25 @@
   &:not(:disabled) {
     cursor: pointer;
   }
-}
-
-.default {
-  border: 1px solid #ccc;
-}
-.x-close-btn {
-  padding: $modal-header-padding;
-  margin: (-$modal-header-padding-y) (-$modal-header-padding-x) (-$modal-header-padding-y) auto;
-  @include remove_default_button_style;
-  font-family: $font-family-sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1rem;
-
-  &::after {
-    content: "x";
+  &.default {
+    border: 1px solid #ccc;
   }
+  &.x-close-btn {
+    padding: $modal-header-padding;
+    margin: (-$modal-header-padding-y) (-$modal-header-padding-x) (-$modal-header-padding-y) auto;
+    @include remove_default_button_style;
+    font-family: $font-family-sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1rem;
+  
+    &::after {
+      content: "x";
+    }
+  }
+  // for mobile version to make long name short
+  // &.add::before {
+  //   content: "+";
+  // }
 }
+

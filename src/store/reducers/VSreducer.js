@@ -3,7 +3,7 @@
 import * as actionTypes from '../actions/actionTypes';
 import { } from '../actions/index';
 
-const initialState = {
+export const initialState = {
 	inPlay: {
 		id: '',
 		name: '',
