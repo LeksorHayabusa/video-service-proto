@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 import actions from '../actions/index';
 import { updateObject } from '../utils';
 
-const initialState = {
+export const initialState = {
 	global: {
 		buttons: {
 			add: {

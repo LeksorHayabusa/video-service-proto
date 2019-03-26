@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/store/actions/AppServActions.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/store/actions</a> AppServActions.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">41.18% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>7/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.64% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/11</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as actionTypes from './actionTypes';
+&nbsp;
+//MODAL ACTIONS
+export const mountAndOpenModal = <span class="fstat-no" title="function not covered" >(c</span>ontent) =&gt; (<span class="cstat-no" title="statement not covered" >{ type: actionTypes.MOUNT_AND_OPEN_MODAL, content })</span>
+&nbsp;
+export const closeModal = <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ type: actionTypes.CLOSE_MODAL })</span>;
+&nbsp;
+export const unmountModal = <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ type: actionTypes.UNMOUNT_MODAL })</span>;
+&nbsp;
+//BACKDROP
+export const closeBackdrop = <span class="fstat-no" title="function not covered" >(p</span>arent) =&gt; {
+<span class="cstat-no" title="statement not covered" >	console.log(parent);</span>
+<span class="cstat-no" title="statement not covered" >	if (parent === actionTypes.MODAL_PARENT) {</span>
+<span class="cstat-no" title="statement not covered" >		return </span>//closeModal; - to be reconnected to saga actions
+	}
+<span class="cstat-no" title="statement not covered" >	return { type: actionTypes.CLOSE_BACKDROP }</span>
+}
+&nbsp;
+//DRAGGABLE WRAPPER
+export const mountDragWrapper = <span class="fstat-no" title="function not covered" >co</span>ntent =&gt; (<span class="cstat-no" title="statement not covered" >{type: actionTypes.MOUNT_DRAG_WRAPPER, content})</span>
+&nbsp;
+export const closeDragWrapper = <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{type: actionTypes.CLOSE_DRAG_WRAPPER})</span>
+&nbsp;
+export const unmountDragWrapper = <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{type: actionTypes.UNMOUNT_DRAG_WRAPPER})</span>
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 25 2019 16:31:03 GMT+0200 (GMT+02:00)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

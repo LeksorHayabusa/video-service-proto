@@ -7,10 +7,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest -u",
-    "tester": "react-scripts test",
+    "test:genuine": "react-scripts test",
     "dev": "parcel ./src/index.html",
     "test:cover": "jest --coverage",
-    "open:coverage": "open ./coverage/lcov-report/index.html"
+    "open:coverage": "open ./coverage/lcov-report/index.html",
+    "debug:jest": "node --inspect-brk node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
     "babel-preset-stage-0": "^6.24.1",
@@ -56,5 +57,6 @@
       "transform-react-jsx",
       "transform-class-properties"
     ]
-  }
+  },
+  "jest": {"testEnvironment":"node"}
 }

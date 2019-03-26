@@ -36,11 +36,11 @@ PreviewThumb.propTypes = {
 }
 
 const mapStateToProps = state => ({
-	isMounted: state.AppServiceState.APARAM,
 	previewList: state.VScontent.previewList,
 	buttonStyles: state.UIsettings.global.buttons
 });
 const mapDispatchToProps = dispatch => ({
 	openDragWrapperAction: (content) => dispatch(actionCreator.mountDragWrapper(content))
 })
+
 export default connect(mapStateToProps, mapDispatchToProps)(PreviewThumb)

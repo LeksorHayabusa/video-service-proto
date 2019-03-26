@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/hoc/DraggableWrapper.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/hoc</a> DraggableWrapper.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">4.88% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>2/41</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.71% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>2/35</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component, Fragment } from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+&nbsp;
+import Button from '../share/Containers/UI/Button';
+import { closeDragWrapper } from '../store/actions/index';
+&nbsp;
+class DraggableWrapper extends Component {
+	state = {
+		relX: 0,
+		relY: 0,
+		x: 0,
+		y: 0
+	}
+&nbsp;
+	onMove = <span class="fstat-no" title="function not covered" >e </span>=&gt; {
+		const { relX, relY, x, y } = <span class="cstat-no" title="statement not covered" >this.state;</span>
+		const xUpdated = <span class="cstat-no" title="statement not covered" >Math.trunc(e.pageX - relX);</span>
+		const yUpdated = <span class="cstat-no" title="statement not covered" >Math.trunc(e.pageY - relY);</span>
+<span class="cstat-no" title="statement not covered" >		if (xUpdated !== x || yUpdated !== y) {</span>
+<span class="cstat-no" title="statement not covered" >			if (yUpdated &gt; 0) <span class="cstat-no" title="statement not covered" >this.setState({ x: xUpdated, y: yUpdated });</span></span>
+<span class="cstat-no" title="statement not covered" >			if (yUpdated &lt;= 0) <span class="cstat-no" title="statement not covered" >this.setState({ x: xUpdated, y: 0 });</span></span>
+		}
+&nbsp;
+	}
+&nbsp;
+	onStart = <span class="fstat-no" title="function not covered" >e </span>=&gt; {
+		const ref = <span class="cstat-no" title="statement not covered" >ReactDOM.findDOMNode(this._draggableAnchorDiv);</span>
+		const body = <span class="cstat-no" title="statement not covered" >document.body;</span>
+		const box = <span class="cstat-no" title="statement not covered" >ref.getBoundingClientRect();</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({</span>
+			relX: e.pageX - (box.left + body.scrollLeft - body.clientLeft),
+			relY: e.pageY - (box.top + body.scrollTop - body.clientTop)
+		})
+	}
+&nbsp;
+	onMouseDown = <span class="fstat-no" title="function not covered" >e </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >		if (e.button !== 0) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >		this.onStart(e);</span>
+<span class="cstat-no" title="statement not covered" >		document.addEventListener('mousemove', this.onMouseMove);</span>
+<span class="cstat-no" title="statement not covered" >		document.addEventListener('mouseup', this.onMouseUp);</span>
+<span class="cstat-no" title="statement not covered" >		e.preventDefault();</span>
+	}
+&nbsp;
+	onMouseMove = <span class="fstat-no" title="function not covered" >e </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >		this.onMove(e);</span>
+<span class="cstat-no" title="statement not covered" >		e.preventDefault();</span>
+	}
+&nbsp;
+	onMouseUp = <span class="fstat-no" title="function not covered" >e </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >		if (e.button !== 0) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >		document.removeEventListener('mouseup', this.onMouseUp);</span>
+<span class="cstat-no" title="statement not covered" >		document.removeEventListener('mousemove', this.onMouseMove);</span>
+		// this.onStop(this.state.x, this.state.y)
+<span class="cstat-no" title="statement not covered" >		e.preventDefault()</span>
+	}
+&nbsp;
+	onTouchStart = <span class="fstat-no" title="function not covered" >e </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >		this.onStart(e.touches[0]);</span>
+<span class="cstat-no" title="statement not covered" >		document.addEventListener('touchmove', this.onTouchMove, { passive: false });</span>
+<span class="cstat-no" title="statement not covered" >		document.addEventListener('touchend', this.onTouchEnd, { passive: false });</span>
+<span class="cstat-no" title="statement not covered" >		e.preventDefault();</span>
+	}
+&nbsp;
+	onTouchMove = <span class="fstat-no" title="function not covered" >e </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >		this.onMove(e.touches[0])</span>
+<span class="cstat-no" title="statement not covered" >		e.preventDefault();</span>
+	}
+&nbsp;
+	onTouchEnd = <span class="fstat-no" title="function not covered" >e </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >		document.removeEventListener('touchmove', this.onTouchMove);</span>
+<span class="cstat-no" title="statement not covered" >		document.removeEventListener('touchend', this.onTouchEnd);</span>
+		// this.onStop
+	}
+&nbsp;
+	getRefToDrag = <span class="fstat-no" title="function not covered" >di</span>v =&gt; <span class="cstat-no" title="statement not covered" >this._draggableAnchorDiv = div;</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >	re</span>nder() {
+		const {
+			isOpened,
+			buttonStyles,
+			content,
+			children,
+			closeWrapperAction,
+		} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+<span class="cstat-no" title="statement not covered" >		return (</span>
+			&lt;div
+				className={`DragWrapper ${isOpened &amp;&amp; 'active'}`}
+				style={{
+					left: this.state.x,
+					top: this.state.y
+				}}
+			&gt;
+				&lt;header className="dragWrapper-header"&gt;
+					&lt;div
+						className="draggableAnchorDiv"
+						onMouseDown={this.onMouseDown}
+						onTouchStart={this.onTouchStart}
+						ref={this.getRefToDrag}
+					&gt;{this.props.title}&lt;/div&gt;
+					&lt;Button
+						styles={buttonStyles.xClose.style}
+						clickButtonAction={closeWrapperAction}
+					/&gt;
+				&lt;/header&gt;
+				&lt;div className="dragWrapper-content"&gt;{children}&lt;/div&gt;
+			&lt;/div&gt;
+		)
+	}
+}
+&nbsp;
+const mapStateToProps = <span class="fstat-no" title="function not covered" >st</span>ate =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+	previewList: state.VScontent.previewList,
+	isOpened: state.AppServiceState.dragWrapper.isOpened,
+	content: state.AppServiceState.dragWrapper.content,
+	buttonStyles: state.UIsettings.dragWrapper.buttons
+});
+const mapDispatchToProps = <span class="fstat-no" title="function not covered" >di</span>spatch =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+	closeWrapperAction: <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >dispatch(closeDragWrapper())</span>
+});
+&nbsp;
+export default connect(mapStateToProps, mapDispatchToProps)(DraggableWrapper)</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 25 2019 16:31:03 GMT+0200 (GMT+02:00)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

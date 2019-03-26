@@ -4,7 +4,7 @@ import { updateObject } from '../utils';
 
 ///////////////внимание нужно рефакторнуть и объединить 
 //функции демонтирования модального, драгплеера и затемнения
-const initialState = {
+export const initialState = {
 	//keys are splited by component-based roles
 	modal: {
 		isOpened: false,

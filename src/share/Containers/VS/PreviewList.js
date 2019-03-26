@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import PreviewThumb from './PreviewThumb';
+import Button from '../UI/Button';
 import DraggableWrapper from '../../../hoc/DraggableWrapper';
 import EmbeddedPlayer from './EmbeddedPlayer';
 
-class PreviewList extends Component {
+export class PreviewList extends Component {
 	state = {
 		clickedItem: null,
 	}
@@ -22,7 +23,8 @@ class PreviewList extends Component {
 					<EmbeddedPlayer
 						youtubeID={previewList[clickedItem].youtubeID}
 					/>
-				</DraggableWrapper>}
+				</DraggableWrapper>
+				}
 				{previewList && previewList.map((el, i) => (
 					<Fragment key={el.id}>
 						<PreviewThumb i={i} getClickedIndexAction={this.getClickedComponentAction} />
